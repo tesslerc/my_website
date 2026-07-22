@@ -22,8 +22,12 @@ Then visit <http://localhost:4173>.
   work features, each with a canonical motion video frame.
 - ProtoMotions is called out in the hero as the open-source community-facing
   thread.
+- The hero carries the complete working thesis: learn a useful motion once,
+  reuse it where the horizon is short, and make the next few seconds count.
 - The bottom archive contains 28 non-patent research outputs with authors,
-  venues/types, one-line summaries, and compact visual thumbnails.
+  venues/types, one-line summaries, and compact visual thumbnails, grouped into
+  Motion / embodiment, Learning / control, Representation / transfer, and
+  Applied systems. Each group has a restrained accent color.
 - A real WASM demo can be added later without replacing the video-led project
   stories; the page uses only lightweight reveal motion for now.
 - Reduced-motion preferences disable reveal transitions.
