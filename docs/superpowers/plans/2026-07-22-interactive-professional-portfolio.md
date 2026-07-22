@@ -101,3 +101,47 @@
 - [ ] **Step 4: Commit the implementation.**
 
   Run `git add index.html styles.css script.js README.md && git commit -m "feat: build interactive robotics portfolio"` after checks pass.
+
+### Task 5: Consolidate the hero thesis and publication taxonomy
+
+**Files:**
+- Modify: `index.html`
+- Modify: `styles.css`
+- Modify: `README.md`
+- Modify: `docs/superpowers/specs/2026-07-22-interactive-professional-portfolio-design.md`
+
+**Interfaces:**
+- `index.html` provides `.publication-group`, `.publication-group-heading`, and
+  `data-group` hooks for the archive taxonomy.
+- `styles.css` consumes `data-group` values `motion`, `control`, `transfer`,
+  and `applied` to set group accents without changing item geometry.
+
+- [ ] **Step 1: Remove the redundant working-statement section and consolidate its copy.**
+
+  Delete the `.intro-strip` section and update `.hero-lede` to say: `I build
+  models and open systems that learn a useful motion once, reuse it where the
+  horizon is short, and make the next few seconds count.`
+
+- [ ] **Step 2: Wrap the 28 publications in four visible semantic groups.**
+
+  Place every existing article in exactly one group: Motion / embodiment (11),
+  Learning / control (8), Representation / transfer (5), or Applied systems
+  (4). Add a group label, count, and one-line descriptor before each group, and
+  remove the duplicate ProtoMotions thumbnail.
+
+- [ ] **Step 3: Add restrained group color tokens.**
+
+  Set `--group-accent` on each group and use it only for the group heading,
+  group rule, count, and `.publication-meta` text. Keep thumbnails, typography,
+  spacing, and hover geometry unchanged.
+
+- [ ] **Step 4: Update project documentation.**
+
+  Document the consolidated hero thesis, four archive groups, and subtle color
+  treatment in `README.md` and the design spec.
+
+- [ ] **Step 5: Run focused verification and commit.**
+
+  Assert one hero lede, no `.intro-strip`, four group wrappers, 28 publication
+  articles, one ProtoMotions thumbnail, valid JavaScript, clean whitespace,
+  and no changed project-card padding on hover; then commit the focused change.

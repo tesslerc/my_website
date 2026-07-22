@@ -72,6 +72,25 @@ has an accessible role and text label. `prefers-reduced-motion` removes the
 reveal and cooking animations. All external links use descriptive text and safe
 target behavior.
 
+## Archive taxonomy and hero copy
+
+The separate “Working statement” strip is removed. Its idea is folded into the
+hero lede so the first viewport carries the complete thesis: models and open
+systems learn useful motion once, reuse it over short horizons, and make the
+next few seconds count.
+
+The publication archive remains fully expanded but is divided into four
+semantic groups: Motion / embodiment, Learning / control, Representation /
+transfer, and Applied systems. Each group has a small heading, count, and
+description. A restrained group accent is used on that heading, its rule, and
+publication metadata; the existing thumbnail variation remains intact so the
+archive reads as an editorial index rather than a dashboard.
+
+Group accents are coral for Motion / embodiment, cyan for Learning / control,
+muted lavender for Representation / transfer, and muted ochre for Applied
+systems. The archive keeps all 28 non-patent outputs visible and fixes the
+accidental duplicate ProtoMotions thumbnail.
+
 ## Acceptance criteria
 
 1. A visitor can understand the professional focus within the first viewport.
