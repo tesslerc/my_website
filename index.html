@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Chen Tessler — motion generation, control, robotics, and reinforcement learning."
+      content="Chen Tessler | motion generation, control, robotics, and reinforcement learning."
     />
     <meta name="theme-color" content="#08111f" />
-    <title>Chen Tessler — Motion, control, robotics</title>
+    <title>Chen Tessler | Motion, control, robotics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,14 +22,14 @@
     <div class="site-frame" id="top">
       <aside class="rail" aria-label="Site navigation">
         <a class="wordmark" href="#top" aria-label="Chen Tessler, back to top">
-          <span class="wordmark-mark">CT</span>
+          <span class="wordmark-mark"><img class="wordmark-avatar" src="assets/avatar.png" alt="Chen Tessler" /></span>
           <span class="wordmark-name">Chen<br />Tessler</span>
         </a>
 
         <nav class="section-nav" aria-label="Sections">
           <a href="#focus">Featured</a>
-          <a href="#publications">Publications</a>
           <a href="#about">About</a>
+          <a href="#publications">Publications</a>
         </nav>
 
         <div class="rail-foot">
@@ -40,24 +40,19 @@
 
       <main>
         <section class="hero section-pad" aria-labelledby="hero-title">
-          <div class="hero-copy reveal">
+          <div class="hero-heading reveal">
             <p class="eyebrow">Motion priors <span>/</span> short-horizon control <span>/</span> open source research</p>
-            <h1 id="hero-title">Learning motion that <em>carries<span class="mobile-break"><br /></span> forward.</em></h1>
+            <h1 id="hero-title">Learning motion for <em>System 1 control.</em></h1>
+          </div>
+
+          <div class="hero-copy reveal">
             <p class="hero-lede">
-              I build models and open systems that turn experience into reusable motion priors — by
-              learning a useful motion once, reusing it where the horizon is short, and making the
-              next few seconds count.
+              I build models and open systems that turn motion data into reusable motion priors that
+              serve as a learned System 1: a reflex layer for near-short-horizon control.
             </p>
-            <div class="hero-thread" aria-label="Current work">
-              <span class="hero-thread-label">Current thread</span>
-              <span>MaskedMimic</span>
-              <span>Generative Pretrained Controllers</span>
-              <span>Kimodo</span>
-              <span class="thread-open-source">ProtoMotions / open source</span>
-            </div>
             <div class="open-source-note">
-              <div><span class="open-source-kicker">Open source research</span><p>ProtoMotions is built to empower the community — making it easier and faster for people to build their own dreams.</p></div>
-              <a href="https://github.com/NVlabs/ProtoMotions" target="_blank" rel="noreferrer">Explore ProtoMotions <span>↗</span></a>
+              <div><span class="open-source-kicker">Open source research / ProtoMotions</span><p>ProtoMotions is a shared framework for humanoid simulation and control, giving the community a practical starting point to experiment, build, and move faster.</p></div>
+              <a href="https://github.com/NVlabs/ProtoMotions" target="_blank" rel="noreferrer">Visit the framework <span>↗</span></a>
             </div>
           </div>
 
@@ -74,46 +69,57 @@
         <section class="focus-section section-pad" id="focus" aria-labelledby="focus-title">
           <div class="section-heading reveal">
             <p class="section-index">01 <span>Selected work</span></p>
-            <h2 id="focus-title">Three systems,<br /><em>one through-line.</em></h2>
+            <h2 id="focus-title">Three systems,<br /><em>a common vision.</em></h2>
           </div>
 
           <div class="project-list">
-            <article class="project-card project-masked reveal">
+            <article class="project-card project-masked reveal" id="work-maskedmimic">
               <div class="project-media">
                 <div class="media-kicker"><span>Motion render / 01</span><span>MaskedMimic</span></div>
-                <video class="project-video" controls preload="metadata" playsinline aria-label="MaskedMimic motion render">
-                  <source src="https://research.nvidia.com/labs/par/maskedmimic/assets/MaskedMimic.mp4" type="video/mp4" />
+                <video class="project-video" autoplay muted loop playsinline preload="metadata" poster="assets/maskedmimic-poster.jpg" aria-label="MaskedMimic motion render">
+                  <source src="assets/maskedmimic.mp4" type="video/mp4" />
                 </video>
                 <a class="media-link" href="https://research.nvidia.com/labs/par/maskedmimic/" target="_blank" rel="noreferrer">Project page <span>↗</span></a>
               </div>
               <div class="project-signal" aria-hidden="true"><span>01</span><i></i><i></i><i></i></div>
-              <div class="project-content"><p class="eyebrow">Motion priors / reusable behavior</p><h3>MaskedMimic</h3><p>Learning motion priors that can be reused instead of replayed — a vocabulary of movement with room for a new body, task, or environment.</p><div class="project-tags"><span>Motion generation</span><span>Reusable priors</span></div></div>
+              <div class="project-content"><p class="eyebrow">Physics-based robotics / zero-shot guidance</p><h3>MaskedMimic</h3><p>A zero-shot, guidable physics-based controller that turns partial intent into whole-body behavior across terrains, tasks, and environments.</p><div class="project-tags"><span>Zero-shot guidance</span><span>Motion inpainting</span></div></div>
               <span class="project-status">Featured work</span>
+              <details class="project-thread">
+                <summary><span>Research path</span><span class="project-thread-chevron" aria-hidden="true">⌄</span></summary>
+                <div class="project-thread-body">
+                  <div class="project-thread-intro"><p class="eyebrow">Research thread / reusable priors</p><p>One motion vocabulary, then more bodies and tasks.</p></div>
+                  <ol class="project-thread-path">
+                    <li class="project-thread-node"><span class="project-thread-stage">Anchor</span><a href="#publication-maskedmimic">MaskedMimic <span aria-hidden="true">↘</span></a><p>Partial evidence becomes a reusable physics-based motion prior.</p></li>
+                    <li class="project-thread-node project-thread-current"><span class="project-thread-stage">Extension</span><a href="#publication-maskedmanipulator">MaskedManipulator <span aria-hidden="true">↘</span></a><p>The same idea reaches into expressive whole-body manipulation.</p></li>
+                    <li class="project-thread-node project-thread-next"><span class="project-thread-stage">Next direction</span><strong>New control modes, robots, scene awareness</strong><p>The same motion prior can extend to new forms of control and interaction.</p></li>
+                  </ol>
+                </div>
+              </details>
             </article>
 
-            <article class="project-card project-gpc reveal">
+            <article class="project-card project-gpc reveal" id="work-gpc">
               <div class="project-media">
                 <div class="media-kicker"><span>Motion render / 02</span><span>GPC</span></div>
-                <div class="project-video video-embed">
-                  <iframe src="https://www.youtube-nocookie.com/embed/r7m8w00vadI?rel=0&modestbranding=1" title="Generative Pretrained Controllers project video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                <video class="project-video" autoplay muted loop playsinline preload="metadata" poster="assets/gpc-poster.jpg" aria-label="Generative Pretrained Controllers motion render">
+                  <source src="assets/gpc.mp4" type="video/mp4" />
+                </video>
                 <a class="media-link" href="https://yi-shi94.github.io/gpc-page/" target="_blank" rel="noreferrer">Project page <span>↗</span></a>
               </div>
               <div class="project-signal" aria-hidden="true"><span>02</span><i></i><i></i><i></i></div>
-              <div class="project-content"><p class="eyebrow">Pretraining / control as a prior</p><h3>Generative Pretrained Controllers</h3><p>Pretraining a controller to carry a broad motion vocabulary into the moment where a robot has to decide what to do next.</p><div class="project-tags"><span>Generative controllers</span><span>Pretraining</span></div></div>
+              <div class="project-content"><p class="eyebrow">Physics-based robotics / reusable motion prior</p><h3>Generative Pretrained Controllers</h3><p>A generative controller trained on large-scale motion data, then adapted to downstream tasks in physics simulation and robotics without rebuilding its movement vocabulary from scratch.</p><div class="project-tags"><span>Reusable priors</span><span>Transferable skills</span></div></div>
               <span class="project-status">Featured work</span>
             </article>
 
-            <article class="project-card project-kimodo reveal">
+            <article class="project-card project-kimodo reveal" id="work-kimodo">
               <div class="project-media">
                 <div class="media-kicker"><span>Motion render / 03</span><span>Kimodo</span></div>
-                <video class="project-video" controls preload="metadata" playsinline aria-label="Kimodo motion render">
-                  <source src="https://research.nvidia.com/labs/sil/projects/kimodo/assets/videos/g1_text_loco2.mp4" type="video/mp4" />
+                <video class="project-video" autoplay muted loop playsinline preload="metadata" poster="assets/kimodo-poster.jpg" aria-label="Kimodo motion render">
+                  <source src="assets/kimodo.mp4" type="video/mp4" />
                 </video>
                 <a class="media-link" href="https://research.nvidia.com/labs/sil/projects/kimodo/" target="_blank" rel="noreferrer">Project page <span>↗</span></a>
               </div>
               <div class="project-signal" aria-hidden="true"><span>03</span><i></i><i></i><i></i></div>
-              <div class="project-content"><p class="eyebrow">Near-short horizon / real-time decisions</p><h3>Kimodo</h3><p>Solving the near-short horizon: turning a learned sense of motion into decisions that stay useful over the next few seconds.</p><div class="project-tags"><span>Short-horizon control</span><span>Robotics</span></div></div>
+              <div class="project-content"><p class="eyebrow">Kinematic model / synthetic data</p><h3>Kimodo</h3><p>A controllable kinematic motion model for generating expressive human movement and the synthetic data needed to build with it.</p><div class="project-tags"><span>Kinematic model</span><span>Synthetic data</span></div></div>
               <span class="project-status">Featured work</span>
             </article>
           </div>
@@ -125,9 +131,8 @@
             <h2 id="about-title">A short note<br /><em>on the work.</em></h2>
           </div>
           <div class="about-grid reveal">
-            <p class="about-lede">I’m interested in the space between a model that can move and a machine that can make the next decision.</p>
             <div class="about-copy">
-              <p>My work focuses on learning reusable motion priors and using them to solve near-short horizon control problems. The goal is a system that carries useful behavior forward — not a policy that only works once, in one place.</p>
+              <p>My work focuses on learning reusable motion priors and using them to solve near-short horizon control problems. The goal is a system that carries useful behavior forward, not a policy that only works once, in one place.</p>
               <p>This is a working archive. The publication list below keeps the research trail together; code and experiments live on <a href="https://github.com/tesslerc" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>.</p>
             </div>
           </div>
@@ -139,193 +144,171 @@
             <h2 id="publications-title">The full thread<br /><em>behind the work.</em></h2>
           </div>
           <div class="publication-intro reveal">
-            <p>Motion generation, control, learning, and the systems around them — a research record kept in one place.</p>
-            <span>28 research outputs / 2017—2026</span>
+            <p>Motion generation, control, learning, and the systems around them.</p>
+            <span>26 research outputs / 2017-2026</span>
           </div>
           <div class="publication-list">
             <section class="publication-group" data-group="motion" aria-labelledby="publication-group-motion">
               <div class="publication-group-heading">
                 <div>
                   <p class="publication-group-label">01 / Archive group</p>
-                  <h3 id="publication-group-motion">Motion / embodiment</h3>
-                  <p>Reusable priors, whole-body control, and the bodies that carry them.</p>
+                  <h3 id="publication-group-motion">Motion</h3>
+                  <p>Reusable priors, whole-body behavior, and the motion they generate.</p>
                 </div>
                 <span class="publication-group-count">11 papers</span>
               </div>
 
-              <article class="publication-item reveal">
+              <article class="publication-item reveal" id="publication-gpc">
                 <div class="publication-thumb thumb-gpc" role="img" aria-label="Abstract controller visualization for Generative Pretrained Controllers"><span>GPC</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>GPC: Large-Scale Generative Pretraining for Transferable Motor Control</h3><p class="publication-authors">Yi Shi, Yifeng Jiang, Chen Tessler, Xue Bin Peng</p><p class="publication-summary">Pretraining a generative controller so learned motor behavior can transfer across robots, tasks, and new goals.</p></div>
-                <p class="publication-meta">2026<br /><span>SIGGRAPH</span></p>
+                <p class="publication-meta">2026<br /><span>SIGGRAPH</span><span class="publication-links"><a href="https://arxiv.org/abs/2606.29148" target="_blank" rel="noreferrer">Paper</a><a href="https://yi-shi94.github.io/gpc-page/" target="_blank" rel="noreferrer">Project</a><a href="https://github.com/NVlabs/ProtoMotions" target="_blank" rel="noreferrer">Code</a></span></p>
               </article>
 
-              <article class="publication-item reveal">
+              <article class="publication-item reveal" id="publication-kimodo">
                 <div class="publication-thumb thumb-kimodo" role="img" aria-label="Abstract motion visualization for Kimodo"><span>KM</span><i></i><i></i></div>
-                <div class="publication-copy"><h3>Kimodo: Scaling Controllable Human Motion Generation</h3><p class="publication-authors">Davis Rempe, Mathis Petrovich, Ye Yuan, Haotian Zhang, Xue Bin Peng, Yifeng Jiang, Tingwu Wang, Umar Iqbal, David Minor, Michael de Ruyter, Jiefeng Li, Chen Tessler, Edy Lim, Eugene Jeong, Sam Wu, Ehsan Hassani, Michael Huang, Jin-Bey Yu, Chaeyeon Chung, Lina Song, Olivier Dionne, Jan Kautz, Simon Yuen, Sanja Fidler</p><p class="publication-summary">A scalable motion model that brings control, text, and constraints together into one expressive movement space.</p></div>
-                <p class="publication-meta">2026<br /><span>ARXIV PREPRINT</span></p>
+                <div class="publication-copy"><h3>Kimodo: Scaling Controllable Human Motion Generation</h3><p class="publication-authors">Davis Rempe, Mathis Petrovich, Ye Yuan, Haotian Zhang, Xue Bin Peng, Yifeng Jiang, Tingwu Wang, Umar Iqbal, David Minor, Michael de Ruyter, Jiefeng Li, Chen Tessler, Edy Lim, Eugene Jeong, Sam Wu, Ehsan Hassani, Michael Huang, Jin-Bey Yu, Chaeyeon Chung, Lina Song, Olivier Dionne, Jan Kautz, Simon Yuen, Sanja Fidler</p><p class="publication-summary">A scalable kinematic motion model that brings control, text, and constraints together into one expressive movement space.</p></div>
+                <p class="publication-meta">2026<br /><span>ARXIV PREPRINT</span><span class="publication-links"><a href="https://arxiv.org/abs/2603.15546" target="_blank" rel="noreferrer">Paper</a><a href="https://research.nvidia.com/labs/sil/projects/kimodo/" target="_blank" rel="noreferrer">Project</a><a href="https://github.com/nv-tlabs/kimodo" target="_blank" rel="noreferrer">Code</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-hil" role="img" aria-label="Abstract athletic control visualization"><span>HIL</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>HIL: Hybrid Imitation Learning for Dynamic Athletic Control</h3><p class="publication-authors">Jiashun Wang, Yifeng Jiang, Haotian Zhang, Chen Tessler, Davis Rempe, Jessica Hodgins, Xue Bin Peng</p><p class="publication-summary">Combining motion tracking and adversarial imitation to compose athletic skills that stay adaptable in new environments.</p></div>
-                <p class="publication-meta">2026<br /><span>ACM TOG</span></p>
+                <p class="publication-meta">2026<br /><span>ACM TOG</span><span class="publication-links"><a href="https://jiashunwang.github.io/HIL/static/mat/Hybrid_Imitation_Learning_TOG.pdf" target="_blank" rel="noreferrer">Paper</a><a href="https://xbpeng.github.io/projects/HIL/index.html" target="_blank" rel="noreferrer">Project</a></span></p>
               </article>
 
               <article class="publication-item reveal">
+                <div class="publication-thumb thumb-token" role="img" aria-label="Abstract task token visualization"><span>TOK</span><i></i><i></i></div>
+                <div class="publication-copy"><h3>Task Tokens: A Flexible Approach to Adapting Behavior Foundation Models</h3><p class="publication-authors">Ron Vainshtein, Zohar Rimon, Shie Mannor, Chen Tessler</p><p class="publication-summary">Learning a compact task-specific signal that adapts a behavior foundation model without erasing its broader motion vocabulary.</p></div>
+                <p class="publication-meta">2026<br /><span>ICLR</span><span class="publication-links"><a href="https://openreview.net/forum?id=6T3wJQhvc3" target="_blank" rel="noreferrer">Paper</a></span></p>
+              </article>
+
+              <article class="publication-item reveal" id="publication-maskedmanipulator">
                 <div class="publication-thumb thumb-manipulator" role="img" aria-label="Abstract whole-body manipulation visualization"><span>MM</span><i></i><i></i></div>
-                <div class="publication-copy"><h3>MaskedManipulator: Versatile Whole-Body Manipulation</h3><p class="publication-authors">Chen Tessler, Yifeng Jiang, Erwin Coumans, Zhengyi Luo, Gal Chechik, Xue Bin Peng</p><p class="publication-summary">A masked motion-prior approach for extending expressive, whole-body behavior into manipulation.</p></div>
-                <p class="publication-meta">2025<br /><span>SIGGRAPH ASIA</span></p>
+                <div class="publication-copy"><h3>MaskedManipulator: Versatile Whole-Body Manipulation</h3><p class="publication-authors">Chen Tessler, Yifeng Jiang, Erwin Coumans, Zhengyi Luo, Gal Chechik, Xue Bin Peng</p><p class="publication-summary">A masked motion-prior approach for extending spatio-temporal goals into whole-body manipulation.</p></div>
+                <p class="publication-meta">2025<br /><span>SIGGRAPH ASIA</span><span class="publication-links"><a href="https://arxiv.org/abs/2505.19086" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-perception" role="img" aria-label="Abstract visual humanoid control visualization"><span>PDC</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Emergent Active Perception and Dexterity of Simulated Humanoids from Visual Reinforcement Learning</h3><p class="publication-authors">Zhengyi Luo, Chen Tessler, Toru Lin, Ye Yuan, Tairan He, Wenli Xiao, Yunrong Guo, Gal Chechik, Kris Kitani, Linxi Fan, Yuke Zhu</p><p class="publication-summary">Learning whole-body humanoid control from visual cues so search, gaze, and dexterous interaction emerge together.</p></div>
-                <p class="publication-meta">2025<br /><span>ARXIV PREPRINT</span></p>
+                <p class="publication-meta">2025<br /><span>ARXIV PREPRINT</span><span class="publication-links"><a href="https://arxiv.org/abs/2505.12278" target="_blank" rel="noreferrer">Paper</a><a href="https://pdc-humanoid.github.io/" target="_blank" rel="noreferrer">Project</a></span></p>
               </article>
 
-              <article class="publication-item reveal">
+              <article class="publication-item reveal" id="publication-maskedmimic">
                 <div class="publication-thumb thumb-masked" role="img" aria-label="Abstract motion inpainting visualization for MaskedMimic"><span>MM</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>MaskedMimic: Unified Physics-Based Character Control Through Masked Motion Inpainting</h3><p class="publication-authors">Chen Tessler, Yunrong Guo, Ofir Nabati, Gal Chechik, Jason Peng</p><p class="publication-summary">Masked motion inpainting turns partial motion evidence into a reusable prior for physics-based character control.</p></div>
-                <p class="publication-meta">2024<br /><span>SIGGRAPH ASIA</span></p>
-              </article>
-
-              <article class="publication-item reveal">
-                <div class="publication-thumb thumb-counter" role="img" aria-label="Abstract player motion visualization"><span>CS</span><i></i><i></i></div>
-                <div class="publication-copy"><h3>Learning to Move Like Professional Counter-Strike Players</h3><p class="publication-authors">David Durst, Feng Xie, Vishnu Sarukkai, Brennan Shacklett, Iuri Frosio, Chen Tessler, Joohwan Kim, Carly Taylor, Gilbert Bernstein, Sanjiban Choudhury, Pat Hanrahan, Kayvon Fatahalian</p><p class="publication-summary">Learning the rhythm and spatial decisions of expert players as a controllable model of movement in a live environment.</p></div>
-                <p class="publication-meta">2024<br /><span>SCA</span></p>
+                <p class="publication-meta">2024<br /><span>SIGGRAPH ASIA</span><span class="publication-links"><a href="https://arxiv.org/abs/2409.14393" target="_blank" rel="noreferrer">Paper</a><a href="https://research.nvidia.com/labs/par/project/maskedmimic.html" target="_blank" rel="noreferrer">Project</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-plamo" role="img" aria-label="Abstract planning and motion visualization"><span>PLAMO</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>PlaMo: Plan and Move in Rich 3D Physical Environments</h3><p class="publication-authors">Assaf Hallak, Gal Dalal, Chen Tessler, Kelly Guo, Shie Mannor, Gal Chechik, Yunrong Guo</p><p class="publication-summary">Pairing scene-aware path planning with a robust physics-based controller for rich, changing environments.</p></div>
-                <p class="publication-meta">2024<br /><span>ACM TOG</span></p>
-              </article>
-
-              <article class="publication-item reveal">
-                <div class="publication-thumb thumb-open-source" role="img" aria-label="Abstract open-source simulation visualization"><span>PROTO</span><i></i><i></i></div>
-                <div class="publication-copy"><h3>ProtoMotions: An Open-Source Framework for Humanoid Simulation and Control</h3><p class="publication-authors">Chen Tessler, Yifeng Jiang, Xue Bin Peng, Erwin Coumans, Yi Shi, Haotian Zhang, Davis Rempe, Gal Chechik, Sanja Fidler</p><p class="publication-summary">An open GPU-accelerated framework that gives the community a fast path from motion ideas to physically simulated characters and humanoid robots.</p></div>
-                <p class="publication-meta">2025<br /><span>OPEN SOURCE</span></p>
+                <p class="publication-meta">2024<br /><span>ARXIV PREPRINT</span><span class="publication-links"><a href="https://arxiv.org/abs/2406.18237" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-sports" role="img" aria-label="Abstract humanoid sports visualization"><span>OLY</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>HumanoidOlympics: Sports Environments for Physically Simulated Humanoids</h3><p class="publication-authors">Zhengyi Luo, Jiashun Wang, Kangni Liu, Haotian Zhang, Chen Tessler, Jingbo Wang, Ye Yuan, Jinkun Cao, Zihui Lin, Fengyi Wang, Jessica K. Hodgins, Kris M. Kitani</p><p class="publication-summary">A broad sports benchmark for developing human-like and performant humanoid behaviors across simulation and robotics.</p></div>
-                <p class="publication-meta">2024<br /><span>ARXIV PREPRINT</span></p>
+                <p class="publication-meta">2024<br /><span>ARXIV PREPRINT</span><span class="publication-links"><a href="https://openreview.net/forum?id=pblB72EmrM" target="_blank" rel="noreferrer">Paper</a><a href="https://humanoidolympics.github.io/" target="_blank" rel="noreferrer">Project</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-calm" role="img" aria-label="Abstract latent motion visualization for CALM"><span>CA</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>CALM: Conditional Adversarial Latent Models for Directable Virtual Characters</h3><p class="publication-authors">Chen Tessler, Yoni Kasten, Yunrong Guo, Shie Mannor, Gal Chechik, Xue Bin Peng</p><p class="publication-summary">A latent motion model that makes generated character behavior directable without giving up its natural variation.</p></div>
-                <p class="publication-meta">2023<br /><span>SIGGRAPH</span></p>
+                <p class="publication-meta">2023<br /><span>SIGGRAPH</span><span class="publication-links"><a href="https://arxiv.org/abs/2305.02195" target="_blank" rel="noreferrer">Paper</a><a href="https://research.nvidia.com/labs/par/calm/" target="_blank" rel="noreferrer">Project</a></span></p>
               </article>
+
+              <article class="publication-item reveal">
+                <div class="publication-thumb thumb-robust" role="img" aria-label="Abstract robust control visualization"><span>ARL</span><i></i><i></i></div>
+                <div class="publication-copy"><h3>Action Robust Reinforcement Learning and Applications in Continuous Control</h3><p class="publication-authors">Chen Tessler, Yonathan Efroni, Shie Mannor</p><p class="publication-summary">Designing policies that are robust when the action that reaches the world is not exactly the action that was intended.</p></div>
+                <p class="publication-meta">2019<br /><span>ICML</span><span class="publication-links"><a href="https://arxiv.org/abs/1901.09184" target="_blank" rel="noreferrer">Paper</a></span></p>
+              </article>
+
             </section>
 
-            <section class="publication-group" data-group="control" aria-labelledby="publication-group-control">
+            <section class="publication-group" data-group="learning" aria-labelledby="publication-group-learning">
               <div class="publication-group-heading">
                 <div>
                   <p class="publication-group-label">02 / Archive group</p>
-                  <h3 id="publication-group-control">Learning / control</h3>
-                  <p>The algorithms that decide, improve, and stay stable.</p>
+                  <h3 id="publication-group-learning">Learning</h3>
+                  <p>Algorithms, representations, and transferable behavior.</p>
                 </div>
-                <span class="publication-group-count">8 papers</span>
+                <span class="publication-group-count">11 papers</span>
               </div>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-gradient" role="img" aria-label="Abstract gradient boosting visualization"><span>GBRL</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Gradient Boosting Reinforcement Learning</h3><p class="publication-authors">Benjamin Fuhrer, Chen Tessler, Gal Dalal</p><p class="publication-summary">Bringing the structure, efficiency, and interpretability of gradient-boosted trees into online reinforcement learning.</p></div>
-                <p class="publication-meta">2025<br /><span>ICML</span></p>
+                <p class="publication-meta">2025<br /><span>ICML</span><span class="publication-links"><a href="https://proceedings.mlr.press/v267/fuhrer25a.html" target="_blank" rel="noreferrer">Paper</a><a href="https://research.nvidia.com/labs/par/publication/gbrl.html" target="_blank" rel="noreferrer">Project</a><a href="https://github.com/NVlabs/gbrl" target="_blank" rel="noreferrer">Code</a></span></p>
+              </article>
+
+              <article class="publication-item reveal">
+                <div class="publication-thumb thumb-counter" role="img" aria-label="Abstract player motion visualization"><span>CS</span><i></i><i></i></div>
+                <div class="publication-copy"><h3>Learning to Move Like Professional Counter-Strike Players</h3><p class="publication-authors">David Durst, Feng Xie, Vishnu Sarukkai, Brennan Shacklett, Iuri Frosio, Chen Tessler, Joohwan Kim, Carly Taylor, Gilbert Bernstein, Sanjiban Choudhury, Pat Hanrahan, Kayvon Fatahalian</p><p class="publication-summary">Learning the rhythm and spatial decisions of expert players as a controllable model of movement in a live environment.</p></div>
+                <p class="publication-meta">2024<br /><span>SCA</span><span class="publication-links"><a href="https://arxiv.org/abs/2408.13934" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-stable" role="img" aria-label="Abstract stable policy visualization"><span>PI</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Never Worse, Mostly Better: Stable Policy Improvement in Deep Reinforcement Learning</h3><p class="publication-authors">Pranav Khanna, Guy Tennenholtz, Nadav Merlis, Shie Mannor, Chen Tessler</p><p class="publication-summary">Policy improvement with a stability guarantee: make progress without losing the behavior that already works.</p></div>
-                <p class="publication-meta">2023<br /><span>AAMAS</span></p>
+                <p class="publication-meta">2023<br /><span>AAMAS</span><span class="publication-links"><a href="https://arxiv.org/abs/1910.01062" target="_blank" rel="noreferrer">Paper</a><a href="https://research.nvidia.com/publication/2023-01_never-worse-mostly-better-stable-policy-improvement-deep-reinforcement-learning" target="_blank" rel="noreferrer">Project</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-ensemble" role="img" aria-label="Abstract ensemble learning visualization"><span>EBQL</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Ensemble Bootstrapping for Q-Learning</h3><p class="publication-authors">Oren Peer, Chen Tessler, Nadav Merlis, Ron Meir</p><p class="publication-summary">Reducing Q-learning bias with an ensemble update that sits between over- and under-estimation.</p></div>
-                <p class="publication-meta">2021<br /><span>ICML</span></p>
+                <p class="publication-meta">2021<br /><span>ICML</span><span class="publication-links"><a href="https://proceedings.mlr.press/v139/peer21a.html" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-context" role="img" aria-label="Abstract contextual decision visualization"><span>MDP</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Inverse Reinforcement Learning in Contextual MDPs</h3><p class="publication-authors">Stav Belogolovsky, Philip Korsunsky, Shie Mannor, Chen Tessler, Tom Zahavy</p><p class="publication-summary">Recovering the goals behind behavior when the environment itself changes with context.</p></div>
-                <p class="publication-meta">2021<br /><span>MACHINE LEARNING</span></p>
+                <p class="publication-meta">2021<br /><span>MACHINE LEARNING</span><span class="publication-links"><a href="https://link.springer.com/article/10.1007/s10994-021-05984-x" target="_blank" rel="noreferrer">Paper</a><a href="https://crml.eelabs.technion.ac.il/projects/inverse-reinforcement-learning-in-contextual-mdps/" target="_blank" rel="noreferrer">Project</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-horizon" role="img" aria-label="Abstract short-horizon reward visualization"><span>RT</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Reward Tweaking: Maximizing the Total Reward While Planning for Short Horizons</h3><p class="publication-authors">Chen Tessler, Shie Mannor</p><p class="publication-summary">Shaping a surrogate reward so short-horizon planning still optimizes the total reward that matters.</p></div>
-                <p class="publication-meta">2020<br /><span>ARXIV PREPRINT</span></p>
+                <p class="publication-meta">2020<br /><span>ARXIV PREPRINT</span><span class="publication-links"><a href="https://arxiv.org/abs/2002.03327" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-policy" role="img" aria-label="Abstract policy distribution visualization"><span>DPO</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Distributional Policy Optimization: An Alternative Approach for Continuous Control</h3><p class="publication-authors">Chen Tessler, Guy Tennenholtz, Shie Mannor</p><p class="publication-summary">Optimizing the distribution of outcomes directly to give continuous-control policies a richer view of what can happen next.</p></div>
-                <p class="publication-meta">2019<br /><span>NEURIPS</span></p>
-              </article>
-
-              <article class="publication-item reveal">
-                <div class="publication-thumb thumb-robust" role="img" aria-label="Abstract robust control visualization"><span>ARL</span><i></i><i></i></div>
-                <div class="publication-copy"><h3>Action Robust Reinforcement Learning and Applications in Continuous Control</h3><p class="publication-authors">Chen Tessler, Yonathan Efroni, Shie Mannor</p><p class="publication-summary">Designing policies that remain useful when the action that reaches the world is not exactly the action that was intended.</p></div>
-                <p class="publication-meta">2019<br /><span>ICML</span></p>
+                <p class="publication-meta">2019<br /><span>NEURIPS</span><span class="publication-links"><a href="https://papers.neurips.cc/paper_files/paper/2019/hash/72da7fd6d1302c0a159f6436d01e9eb0-Abstract.html" target="_blank" rel="noreferrer">Paper</a><a href="https://rlrl.net.technion.ac.il/2019/10/28/distributional-policy-optimization/" target="_blank" rel="noreferrer">Project</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-policy" role="img" aria-label="Abstract constrained policy visualization"><span>RCPO</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Reward Constrained Policy Optimization</h3><p class="publication-authors">Chen Tessler, Daniel J. Mankowitz, Shie Mannor</p><p class="publication-summary">A policy-optimization method for maximizing reward while respecting safety and resource constraints.</p></div>
-                <p class="publication-meta">2019<br /><span>ICLR</span></p>
-              </article>
-            </section>
-
-            <section class="publication-group" data-group="transfer" aria-labelledby="publication-group-transfer">
-              <div class="publication-group-heading">
-                <div>
-                  <p class="publication-group-label">03 / Archive group</p>
-                  <h3 id="publication-group-transfer">Representation / transfer</h3>
-                  <p>Structures for carrying knowledge across tasks, contexts, and open-ended worlds.</p>
-                </div>
-                <span class="publication-group-count">5 papers</span>
-              </div>
-
-              <article class="publication-item reveal">
-                <div class="publication-thumb thumb-token" role="img" aria-label="Abstract task token visualization"><span>TOK</span><i></i><i></i></div>
-                <div class="publication-copy"><h3>Task Tokens: A Flexible Approach to Adapting Behavior Foundation Models</h3><p class="publication-authors">Ron Vainshtein, Zohar Rimon, Shie Mannor, Chen Tessler</p><p class="publication-summary">Learning a compact task-specific signal that adapts a behavior foundation model without erasing its broader motion vocabulary.</p></div>
-                <p class="publication-meta">2026<br /><span>ICLR</span></p>
-              </article>
-
-              <article class="publication-item reveal">
-                <div class="publication-thumb thumb-essay" role="img" aria-label="Abstract reinforcement learning essay visualization"><span>NOW?</span><i></i><i></i></div>
-                <div class="publication-copy"><h3>Deep Reinforcement Learning Works—Now What?</h3><p class="publication-authors">Chen Tessler</p><p class="publication-summary">A research essay on what changes once deep reinforcement learning is reliable enough to move beyond the benchmark.</p></div>
-                <p class="publication-meta">2020<br /><span>ESSAY</span></p>
+                <p class="publication-meta">2019<br /><span>ICLR</span><span class="publication-links"><a href="https://arxiv.org/abs/1805.11074" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-language" role="img" aria-label="Abstract language-conditioned state visualization"><span>LANG</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Language is Power: Representing States Using Natural Language in Reinforcement Learning</h3><p class="publication-authors">Erez Schwartz, Guy Tennenholtz, Chen Tessler, Shie Mannor</p><p class="publication-summary">Representing state semantically in language to give reinforcement-learning agents a more robust handle on complex situations.</p></div>
-                <p class="publication-meta">2019<br /><span>ARXIV PREPRINT</span></p>
+                <p class="publication-meta">2019<br /><span>ARXIV PREPRINT</span><span class="publication-links"><a href="https://arxiv.org/abs/1910.02789" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-assembly" role="img" aria-label="Abstract sparse action assembly visualization"><span>ASM</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Action Assembly: Sparse Imitation Learning for Text Based Games with Combinatorial Action Spaces</h3><p class="publication-authors">Chen Tessler, Tom Zahavy, Deborah Cohen, Daniel J. Mankowitz, Shie Mannor</p><p class="publication-summary">Combining compressed sensing and imitation learning to make enormous discrete action spaces tractable.</p></div>
-                <p class="publication-meta">2019<br /><span>RLDM</span></p>
+                <p class="publication-meta">2019<br /><span>RLDM</span><span class="publication-links"><a href="https://arxiv.org/abs/1905.09700" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-minecraft" role="img" aria-label="Abstract hierarchical learning visualization"><span>MC</span><i></i><i></i></div>
-                <div class="publication-copy"><h3>A Deep Hierarchical Approach to Lifelong Learning in Minecraft</h3><p class="publication-authors">Chen Tessler, Shahar Givony, Tom Zahavy, Daniel J. Mankowitz, Shie Mannor</p><p class="publication-summary">Hierarchical skills and lifelong learning for an open-ended world where the next task is rarely known in advance.</p></div>
-                <p class="publication-meta">2017<br /><span>AAAI</span></p>
+                <div class="publication-copy"><h3>A Deep Hierarchical Approach to Lifelong Learning in Minecraft</h3><p class="publication-authors">Chen Tessler, Shahar Givony, Tom Zahavy, Daniel J. Mankowitz, Shie Mannor</p><p class="publication-summary">Reusable skills enable learning long-horizon tasks in an open-ended world, where the next task is rarely known in advance.</p></div>
+                <p class="publication-meta">2017<br /><span>AAAI</span><span class="publication-links"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/10744" target="_blank" rel="noreferrer">Paper</a><a href="https://chentessler.wixsite.com/hdrlnminecraft" target="_blank" rel="noreferrer">Project</a></span></p>
               </article>
             </section>
 
             <section class="publication-group" data-group="applied" aria-labelledby="publication-group-applied">
               <div class="publication-group-heading">
                 <div>
-                  <p class="publication-group-label">04 / Archive group</p>
-                  <h3 id="publication-group-applied">Applied systems</h3>
-                  <p>When learned decisions meet hardware, infrastructure, and design.</p>
+                  <p class="publication-group-label">03 / Archive group</p>
+                  <h3 id="publication-group-applied">Applied</h3>
+                  <p>When learned ideas meet hardware, infrastructure, and design.</p>
                 </div>
                 <span class="publication-group-count">4 papers</span>
               </div>
@@ -333,25 +316,25 @@
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-research" role="img" aria-label="Abstract peptide design visualization"><span>DPO</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Improving Inverse Folding for Peptide Design with Diversity-Regularized Direct Preference Optimization</h3><p class="publication-authors">Ryan Park, Darren J. Hsu, C. Brian Roland, Maria Korsunova, Chen Tessler, Shie Mannor, Olivia Viessmann, Bruno Trentini</p><p class="publication-summary">Using preference optimization to make inverse-folding models produce more diverse peptide sequences without sacrificing structure.</p></div>
-                <p class="publication-meta">2024<br /><span>ARXIV PREPRINT</span></p>
+                <p class="publication-meta">2024<br /><span>ARXIV PREPRINT</span><span class="publication-links"><a href="https://arxiv.org/abs/2410.19471" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-network" role="img" aria-label="Abstract network control visualization"><span>RL</span><i></i><i></i></div>
-                <div class="publication-copy"><h3>Implementing Reinforcement Learning Datacenter Congestion Control in NVIDIA NICs</h3><p class="publication-authors">Benjamin Fuhrer, Yuval Shpigelman, Chen Tessler, Shie Mannor, Gal Chechik, Eitan Zahavy, Gal Dalal</p><p class="publication-summary">Moving learned congestion control from an algorithmic idea into the hardware and timing constraints of a network interface.</p></div>
-                <p class="publication-meta">2023<br /><span>CCGRID</span></p>
+                <div class="publication-copy"><h3>Implementing Reinforcement Learning Datacenter Congestion Control in NVIDIA NICs</h3><p class="publication-authors">Benjamin Fuhrer, Yuval Shpigelman, Chen Tessler, Shie Mannor, Gal Chechik, Eitan Zahavy, Gal Dalal</p><p class="publication-summary">Deploying learned congestion control in real time on NVIDIA NIC hardware inside a production datacenter.</p></div>
+                <p class="publication-meta">2023<br /><span>CCGRID</span><span class="publication-links"><a href="https://arxiv.org/abs/2207.02295" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-network" role="img" aria-label="Abstract datacenter control visualization"><span>DC</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Reinforcement Learning for Datacenter Congestion Control</h3><p class="publication-authors">Chen Tessler, Yuval Shpigelman, Gal Dalal, Amit Mendelbaum, Doron Kazakov, Benjamin Fuhrer, Gal Chechik, Shie Mannor</p><p class="publication-summary">Applying reinforcement learning to keep datacenter traffic moving under changing demand and tight latency budgets.</p></div>
-                <p class="publication-meta">2022<br /><span>IAAI</span></p>
+                <p class="publication-meta">2022<br /><span>IAAI</span><span class="publication-links"><a href="https://arxiv.org/abs/2102.09337" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
 
               <article class="publication-item reveal">
                 <div class="publication-thumb thumb-earth" role="img" aria-label="Abstract autonomous grading visualization"><span>AG</span><i></i><i></i></div>
                 <div class="publication-copy"><h3>Towards Autonomous Grading In The Real World</h3><p class="publication-authors">Yakov Miron, Chana Ross, Yuval Goldfracht, Chen Tessler, Dotan Di Castro</p><p class="publication-summary">Bridging simulation and a scaled physical prototype to teach a dozer how to flatten uneven terrain.</p></div>
-                <p class="publication-meta">2022<br /><span>IROS</span></p>
+                <p class="publication-meta">2022<br /><span>IROS</span><span class="publication-links"><a href="https://arxiv.org/abs/2206.06091" target="_blank" rel="noreferrer">Paper</a></span></p>
               </article>
             </section>
           </div>

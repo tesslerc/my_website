@@ -39,7 +39,7 @@
 
 - [ ] **Step 4: Add the non-patent research archive.**
 
-  List the current Scholar record without patents, including authors, one-line summaries, venues/types, and small visual thumbnails. Include ProtoMotions as an open-source research output and deduplicate preprint/conference versions.
+  List the current Scholar record without patents, including authors, one-line summaries, venues/types, and small visual thumbnails. Keep ProtoMotions as a hero-level open-source thread rather than duplicating it in the archive, and deduplicate preprint/conference versions.
 
 ### Task 2: Build the visual system and responsive layout
 
@@ -73,11 +73,20 @@
 
   Add an IntersectionObserver for `.reveal` elements, mark elements visible once, and make all elements visible immediately when reduced motion is requested or IntersectionObserver is unavailable.
 
-- [ ] **Step 2: Keep the page behavior restrained until WASM exists.**
+- [ ] **Step 2: Add native featured-work research threads.**
 
-  Keep the project cards and publication archive semantic and readable without click handlers or fake controls; native video controls are the only project interaction.
+  Give MaskedMimic a native `details` disclosure with a three-node
+  foundation → extension → next-direction path. Keep GPC and Kimodo focused
+  without expansion controls until concrete lineages are established. Keep the
+  path keyboard accessible and stack it on mobile.
 
-- [ ] **Step 3: Populate the footer year.**
+- [ ] **Step 3: Keep the page behavior restrained until WASM exists.**
+
+  Keep the project cards and publication archive semantic and readable; use
+  native video controls and the research-thread disclosures without presenting a
+  fake control demo.
+
+- [ ] **Step 4: Populate the footer year.**
 
   Set `#year` from the browser's current date so the footer stays current.
 
@@ -113,21 +122,22 @@
 **Interfaces:**
 - `index.html` provides `.publication-group`, `.publication-group-heading`, and
   `data-group` hooks for the archive taxonomy.
-- `styles.css` consumes `data-group` values `motion`, `control`, `transfer`,
-  and `applied` to set group accents without changing item geometry.
+- `styles.css` consumes `data-group` values `motion`, `learning`, and `applied`
+  to set group accents without changing item geometry.
 
 - [ ] **Step 1: Remove the redundant working-statement section and consolidate its copy.**
 
   Delete the `.intro-strip` section and update `.hero-lede` to say: `I build
-  models and open systems that learn a useful motion once, reuse it where the
-  horizon is short, and make the next few seconds count.`
+  models and open systems that turn motion data into reusable motion priors that
+  serve as a learned System 1: a reflex layer for near-short-horizon control.`
 
-- [ ] **Step 2: Wrap the 28 publications in four visible semantic groups.**
+- [ ] **Step 2: Wrap the 26 selected publications in three visible semantic groups.**
 
-  Place every existing article in exactly one group: Motion / embodiment (11),
-  Learning / control (8), Representation / transfer (5), or Applied systems
-  (4). Add a group label, count, and one-line descriptor before each group, and
-  remove the duplicate ProtoMotions thumbnail.
+  Place every existing article in exactly one group: Motion (11), Learning (11),
+  or Applied (4). The former representation/transfer entries are folded into
+  Learning. Add a group label, count, and one-line descriptor before each group,
+  and keep ProtoMotions out of the archive because it is already emphasized in
+  the hero.
 
 - [ ] **Step 3: Add restrained group color tokens.**
 
@@ -140,8 +150,15 @@
   Document the consolidated hero thesis, four archive groups, and subtle color
   treatment in `README.md` and the design spec.
 
-- [ ] **Step 5: Run focused verification and commit.**
+- [ ] **Step 5: Add publication link rows.**
 
-  Assert one hero lede, no `.intro-strip`, four group wrappers, 28 publication
-  articles, one ProtoMotions thumbnail, valid JavaScript, clean whitespace,
-  and no changed project-card padding on hover; then commit the focused change.
+  Add a compact `.publication-links` row beneath each year and venue. Every item
+  must have a Paper link; add Project and Code only when a verified destination
+  exists.
+
+- [ ] **Step 6: Run focused verification and commit.**
+
+  Assert one hero lede, no `.intro-strip`, four group wrappers, 26 publication
+  articles, no ProtoMotions archive thumbnail, three research-thread disclosures,
+  26 publication link rows, valid JavaScript, and clean whitespace; then commit
+  the focused change.

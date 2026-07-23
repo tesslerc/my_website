@@ -56,7 +56,8 @@ else so the motion remains the signature.
 └─────────────────────────────────────────────────┘
 ```
 
-The fixed rail collapses into a compact top bar on small screens. The hero
+The fixed rail collapses into a compact top bar on small screens. The rail
+wordmark uses the supplied square avatar as a small square icon; the hero
 portrait frame keeps the supplied 4:3 family photo intact and can be swapped
 for a formal portrait later. Project features carry the narrative without
 pretending to be a finished interactive demo. A small animated “Now cooking” rail status
@@ -76,20 +77,30 @@ target behavior.
 
 The separate “Working statement” strip is removed. Its idea is folded into the
 hero lede so the first viewport carries the complete thesis: models and open
-systems learn useful motion once, reuse it over short horizons, and make the
-next few seconds count.
+systems turn motion data into reusable priors that serve as a learned System 1,
+a reflex layer for near-short-horizon control.
 
-The publication archive remains fully expanded but is divided into four
-semantic groups: Motion / embodiment, Learning / control, Representation /
-transfer, and Applied systems. Each group has a small heading, count, and
-description. A restrained group accent is used on that heading, its rule, and
-publication metadata; the existing thumbnail variation remains intact so the
-archive reads as an editorial index rather than a dashboard.
+The publication archive remains fully expanded but is divided into three
+semantic groups: Motion, Learning, and Applied. Each group has a small heading,
+count, and description. A restrained group accent is used on that heading, its
+rule, and publication metadata; the existing thumbnail variation remains
+intact so the archive reads as an editorial index rather than a dashboard.
 
-Group accents are coral for Motion / embodiment, cyan for Learning / control,
-muted lavender for Representation / transfer, and muted ochre for Applied
-systems. The archive keeps all 28 non-patent outputs visible and fixes the
-accidental duplicate ProtoMotions thumbnail.
+Group accents are coral for Motion, cyan for Learning, and muted ochre for
+Applied. The archive keeps the selected 26 non-patent outputs visible.
+ProtoMotions is intentionally emphasized in the hero as the open-source
+community thread, without duplicating it in the publication archive. Each paper
+gets a compact link row with a verified Paper destination and optional Project
+or Code destinations.
+
+## Featured-work research threads
+
+The three featured cards remain visually unchanged at rest. MaskedMimic adds one
+native “Research path” disclosure beneath its content. Opening it reveals a quiet
+three-node path from MaskedMimic to MaskedManipulator and an open next direction.
+GPC and Kimodo stay self-contained until their own concrete research lineages are
+clear enough to show. Only one disclosure can be open, and the path stacks
+vertically on mobile.
 
 ## Acceptance criteria
 

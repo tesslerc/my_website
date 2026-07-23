@@ -1,0 +1,44 @@
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+
+const html = fs.readFileSync("index.html", "utf8");
+const css = fs.readFileSync("styles.css", "utf8");
+const nav = html.match(/<nav class="section-nav"[\s\S]*?<\/nav>/)?.[0] || "";
+const maskedCard = html.match(/<article class="project-card project-masked[\s\S]*?<\/article>/)?.[0] || "";
+const kimodoCard = html.match(/<article class="project-card project-kimodo[\s\S]*?<\/article>/)?.[0] || "";
+const gpcCard = html.match(/<article class="project-card project-gpc[\s\S]*?<\/article>/)?.[0] || "";
+
+assert.match(html, /<div class="hero-heading reveal">[\s\S]*<h1 id="hero-title">Learning motion for <em>System 1 control\.<\/em>/, "the thesis should name the reflex-control focus");
+assert.match(html, /<h2 id="focus-title">Three systems,<br \/><em>a common vision\.<\/em><\/h2>/, "selected work should frame the cards around a shared vision");
+assert.match(css, /\.hero-heading\s*\{[^}]*grid-column:\s*1 \/ -1/, "the thesis row should span both hero columns");
+assert.match(css, /\.hero-heading h1\s*\{[^}]*max-width:\s*none/, "the thesis should not be constrained to the lower copy column");
+assert.match(css, /\.hero-copy\s*\{[^}]*grid-column:\s*1/, "the lower copy should stay in the left hero column");
+assert.match(css, /\.portrait-card\s*\{[^}]*grid-column:\s*2/, "the portrait should stay in the right hero column");
+assert.match(css, /\.section-pad\s*\{[^}]*padding: clamp\(4rem, 7vw, 6\.5rem\)/, "section spacing should keep breathing room without excessive margins");
+assert.match(css, /\.project-list\s*\{[^}]*margin-top: clamp\(2rem, 4\.5vw, 4rem\)/, "featured work should arrive closer to its heading");
+assert.match(css, /\.publication-intro\s*\{[^}]*margin-top: clamp\(2rem, 4vw, 3\.5rem\)/, "publication intro spacing should stay compact");
+assert.ok(nav.indexOf('href="#about"') < nav.indexOf('href="#publications"'), "sidebar navigation should follow the page flow");
+assert.doesNotMatch(html, /class="hero-thread"/, "the hero should not contain a current-thread block");
+assert.doesNotMatch(html, /I’m interested in the space between a model that can move/, "the About section should keep only the focused research statement");
+assert.match(css, /\.about-copy\s*\{[^}]*grid-column:\s*1 \/ -1/, "the focused About statement should span the full width");
+assert.match(html, /shared framework for humanoid simulation and control/, "the open-source note should explain ProtoMotions' practical role");
+assert.match(kimodoCard, /Kinematic model \/ synthetic data/, "Kimodo should be framed as a kinematic synthetic-data model");
+assert.match(kimodoCard, /Synthetic data/, "Kimodo should surface its synthetic-data use");
+assert.match(kimodoCard, /autoplay muted loop playsinline[^>]*poster="assets\/kimodo-poster\.jpg"/, "Kimodo should autoplay its local video without controls");
+assert.match(kimodoCard, /assets\/kimodo\.mp4/, "Kimodo should use the downloaded local video");
+assert.doesNotMatch(kimodoCard, /g1_text_loco2\.mp4/, "Kimodo should replace the old remote video");
+assert.doesNotMatch(kimodoCard, /Near-short horizon|real-time decisions|Short-horizon control/, "Kimodo should not be framed as short-horizon control");
+assert.match(maskedCard, /Physics-based robotics \/ zero-shot guidance/, "MaskedMimic should foreground physics-based robotics and zero-shot guidance");
+assert.match(maskedCard, /Motion inpainting/, "MaskedMimic should surface its motion-inpainting method");
+assert.match(maskedCard, /physics-based controller/, "MaskedMimic should be distinguished from kinematic animation");
+assert.match(maskedCard, /autoplay muted loop playsinline[^>]*poster="assets\/maskedmimic-poster\.jpg"/, "MaskedMimic should autoplay its local video without controls");
+assert.match(maskedCard, /assets\/maskedmimic\.mp4/, "MaskedMimic should use the downloaded local video");
+assert.match(gpcCard, /Physics-based robotics \/ reusable motion prior/, "GPC should foreground physics-based robotics and reusable motion priors");
+assert.doesNotMatch(gpcCard, /Pretraining \/ control as a prior/, "GPC should not be framed as a generic pretraining/control card");
+assert.match(gpcCard, /physics simulation and robotics/, "GPC should be distinguished from kinematic animation");
+assert.match(gpcCard, /autoplay muted loop playsinline[^>]*poster="assets\/gpc-poster\.jpg"/, "GPC should autoplay its local video without controls");
+assert.match(gpcCard, /assets\/gpc\.mp4/, "GPC should use the downloaded local video");
+assert.doesNotMatch(html, /youtube-nocookie\.com|platform\.twitter\.com\/widgets\.js/, "the cards should not depend on external video embeds");
+assert.doesNotMatch(html, /Video source/, "the cards should keep only useful project-page links");
+
+console.log("hero layout checks passed");
