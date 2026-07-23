@@ -3,6 +3,7 @@ const fs = require("node:fs");
 
 const html = fs.readFileSync("index.html", "utf8");
 const css = fs.readFileSync("styles.css", "utf8");
+const script = fs.readFileSync("script.js", "utf8");
 const nav = html.match(/<nav class="section-nav"[\s\S]*?<\/nav>/)?.[0] || "";
 const maskedCard = html.match(/<article class="project-card project-masked[\s\S]*?<\/article>/)?.[0] || "";
 const kimodoCard = html.match(/<article class="project-card project-kimodo[\s\S]*?<\/article>/)?.[0] || "";
@@ -40,5 +41,29 @@ assert.match(gpcCard, /autoplay muted loop playsinline[^>]*poster="assets\/gpc-p
 assert.match(gpcCard, /assets\/gpc\.mp4/, "GPC should use the downloaded local video");
 assert.doesNotMatch(html, /youtube-nocookie\.com|platform\.twitter\.com\/widgets\.js/, "the cards should not depend on external video embeds");
 assert.doesNotMatch(html, /Video source/, "the cards should keep only useful project-page links");
+
+const ledeIndex = html.indexOf('class="hero-lede"');
+const profileIndex = html.indexOf('class="profile-links"');
+const openSourceIndex = html.indexOf('class="open-source-note"');
+assert.ok(ledeIndex >= 0 && profileIndex > ledeIndex && openSourceIndex > profileIndex, "about links should sit between the hero lede and ProtoMotions note");
+assert.match(html, /<nav class="profile-links" aria-label="About Chen Tessler">/, "about links should have a named navigation group");
+assert.match(html, /href="https:\/\/scholar\.google\.com\/citations\?user=7eLKa3IAAAAJ&hl=en&oi=ao"[^>]*>Scholar/, "Scholar link should be present");
+assert.match(html, /href="https:\/\/x\.com\/ChenTessler"[^>]*>X/, "X link should be present");
+assert.match(html, /href="https:\/\/www\.linkedin\.com\/in\/chentessler\/"[^>]*>LinkedIn \/ CV/, "LinkedIn and CV link should be present");
+assert.equal((html.match(/class="profile-link"/g) || []).length, 3, "the about rail should contain exactly three links");
+assert.match(html, /class="open-source-impact"[^>]*aria-label="ProtoMotions community stars"/, "ProtoMotions should expose a community impact link");
+assert.match(html, /data-github-stars/, "the star count should have a dedicated live-value target");
+assert.match(html, /class="open-source-impact-label">community stars/, "the impact readout should name what it measures");
+assert.match(css, /\.profile-links\s*\{/, "about links should have a dedicated layout rule");
+assert.match(css, /\.profile-link\s*\{/, "about links should have a dedicated link rule");
+assert.match(css, /\.open-source-impact\s*\{/, "the community signal should have a dedicated visual treatment");
+assert.match(css, /\.open-source-note\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+auto[^}]*grid-template-rows:\s*auto\s+auto/, "desktop ProtoMotions content should use a two-column, two-row stack");
+assert.match(css, /\.open-source-copy\s*\{[^}]*grid-row:\s*1\s*\/\s*span\s*2/, "desktop ProtoMotions copy should span both impact rows");
+assert.match(css, /\.open-source-impact\s*\{[^}]*grid-column:\s*2[^}]*grid-row:\s*1/, "desktop stars should sit above the framework link");
+assert.match(css, /\.open-source-note > a:not\(\.open-source-impact\)\s*\{[^}]*grid-column:\s*2[^}]*grid-row:\s*2/, "desktop framework link should sit below the stars");
+assert.match(script, /api\.github\.com\/repos\/NVlabs\/ProtoMotions/, "the page should query the ProtoMotions repository");
+assert.match(script, /stargazers_count/, "the page should read GitHub's star-count field");
+assert.match(script, /Intl\.NumberFormat/, "the live star count should be formatted for display");
+assert.match(script, /catch\(\(\) =>/, "the star count should have a graceful API failure path");
 
 console.log("hero layout checks passed");

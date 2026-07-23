@@ -9,8 +9,9 @@ assert.match(html, /class="portrait-card reveal"/, "the hero should contain the 
 assert.match(html, /class="open-source-note"/, "the hero should contain the open-source note");
 assert.match(mobileCss, /\.hero-copy\s*\{[^}]*display:\s*contents/, "mobile hero copy should expose its children to the hero grid");
 assert.match(mobileCss, /\.hero-lede\s*\{[^}]*grid-row:\s*2/, "mobile hero lede should appear before the portrait");
-assert.match(mobileCss, /\.portrait-card\s*\{[^}]*grid-row:\s*3/, "mobile portrait should appear before ProtoMotions");
-assert.match(mobileCss, /\.open-source-note\s*\{[^}]*grid-row:\s*4/, "mobile ProtoMotions note should follow the portrait");
+assert.match(mobileCss, /\.profile-links\s*\{[^}]*grid-column:\s*1[^}]*grid-row:\s*3/, "mobile profile links should follow the lede");
+assert.match(mobileCss, /\.portrait-card\s*\{[^}]*grid-row:\s*4/, "mobile portrait should appear before ProtoMotions");
+assert.match(mobileCss, /\.open-source-note\s*\{[^}]*grid-row:\s*5/, "mobile ProtoMotions note should follow the portrait and profile links");
 
 assert.match(mobileCss, /\.project-content\s*\{[^}]*grid-row:\s*1/, "mobile project explanation should come first");
 assert.match(mobileCss, /\.project-media\s*\{[^}]*grid-row:\s*2/, "mobile project video should follow the explanation");
