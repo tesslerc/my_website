@@ -47,6 +47,7 @@
     const value = document.querySelector("[data-github-stars]");
     const impact = value?.closest(".open-source-impact");
     if (!value || !impact) return;
+    const fallback = value.dataset.githubStarsFallback || value.textContent;
 
     fetch("https://api.github.com/repos/NVlabs/ProtoMotions", {
       headers: { Accept: "application/vnd.github+json" },
@@ -64,8 +65,8 @@
         impact.setAttribute("aria-label", `${repository.stargazers_count.toLocaleString()} ProtoMotions community stars on GitHub`);
       })
       .catch(() => {
-        value.textContent = "—";
-        impact.setAttribute("aria-label", "View ProtoMotions on GitHub");
+        value.textContent = fallback;
+        impact.setAttribute("aria-label", `${fallback} ProtoMotions community stars on GitHub`);
       });
   }
 

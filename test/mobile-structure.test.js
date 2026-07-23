@@ -10,6 +10,9 @@ assert.match(html, /class="open-source-note"/, "the hero should contain the open
 assert.match(mobileCss, /\.hero-copy\s*\{[^}]*display:\s*contents/, "mobile hero copy should expose its children to the hero grid");
 assert.match(mobileCss, /\.hero-lede\s*\{[^}]*grid-row:\s*2/, "mobile hero lede should appear before the portrait");
 assert.match(mobileCss, /\.profile-links\s*\{[^}]*grid-column:\s*1[^}]*grid-row:\s*3/, "mobile profile links should follow the lede");
+assert.match(mobileCss, /\.profile-links\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)/, "mobile profile links should use a stable three-column rail");
+assert.match(mobileCss, /\.profile-links-label\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/, "mobile About me label should occupy its own row");
+assert.match(mobileCss, /\.profile-link\s*\{[^}]*display:\s*inline-flex/, "mobile profile links should have a deliberate link treatment");
 assert.match(mobileCss, /\.portrait-card\s*\{[^}]*grid-row:\s*4/, "mobile portrait should appear before ProtoMotions");
 assert.match(mobileCss, /\.open-source-note\s*\{[^}]*grid-row:\s*5/, "mobile ProtoMotions note should follow the portrait and profile links");
 

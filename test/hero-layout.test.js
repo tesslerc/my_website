@@ -52,7 +52,7 @@ assert.match(html, /href="https:\/\/x\.com\/ChenTessler"[^>]*>X/, "X link should
 assert.match(html, /href="https:\/\/www\.linkedin\.com\/in\/chentessler\/"[^>]*>LinkedIn \/ CV/, "LinkedIn and CV link should be present");
 assert.equal((html.match(/class="profile-link"/g) || []).length, 3, "the about rail should contain exactly three links");
 assert.match(html, /class="open-source-impact"[^>]*aria-label="ProtoMotions community stars"/, "ProtoMotions should expose a community impact link");
-assert.match(html, /data-github-stars/, "the star count should have a dedicated live-value target");
+assert.match(html, /data-github-stars[^>]*data-github-stars-fallback="2\.1k">2\.1k/, "the star count should have a visible fallback before the API responds");
 assert.match(html, /class="open-source-impact-label">community stars/, "the impact readout should name what it measures");
 assert.match(css, /\.profile-links\s*\{/, "about links should have a dedicated layout rule");
 assert.match(css, /\.profile-link\s*\{/, "about links should have a dedicated link rule");
@@ -65,5 +65,7 @@ assert.match(script, /api\.github\.com\/repos\/NVlabs\/ProtoMotions/, "the page 
 assert.match(script, /stargazers_count/, "the page should read GitHub's star-count field");
 assert.match(script, /Intl\.NumberFormat/, "the live star count should be formatted for display");
 assert.match(script, /catch\(\(\) =>/, "the star count should have a graceful API failure path");
+assert.match(script, /const fallback = value\.dataset\.githubStarsFallback \|\| value\.textContent/, "the star count should retain its static fallback");
+assert.match(script, /value\.textContent = fallback/, "API failure should preserve the visible fallback count");
 
 console.log("hero layout checks passed");
