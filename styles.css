@@ -262,6 +262,13 @@ input[type="range"] { width: 100%; height: 1rem; accent-color: var(--coral); cur
 .publications-section { max-width: 1400px; border-top: 1px solid var(--rule); }
 .publication-intro { display: flex; margin-top: clamp(2rem, 4vw, 3.5rem); padding-bottom: 0.8rem; justify-content: space-between; gap: 2rem; border-bottom: 1px solid var(--rule); color: var(--muted); }
 .publication-intro p { max-width: 500px; margin: 0; font-size: 0.95rem; }.publication-intro span { color: var(--coral); font: 400 0.62rem/1.35 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+
+@media (min-width: 821px) {
+  .hero { min-height: auto; }
+  .focus-section { padding-bottom: clamp(2.5rem, 4vw, 4rem); }
+  .publications-section { padding-top: clamp(2.5rem, 4vw, 4rem); }
+}
+
 .publication-list { border-top: 0; }
 .publication-group { --group-accent: var(--coral); --group-rule: rgba(255, 107, 74, 0.34); border-top: 1px solid var(--group-rule); }
 .publication-group[data-group="learning"] { --group-accent: var(--cyan); --group-rule: rgba(135, 217, 223, 0.34); }
@@ -306,6 +313,11 @@ input[type="range"] { width: 100%; height: 1rem; accent-color: var(--coral); cur
   .project-thread-body { grid-template-columns: 1fr; gap: 1.25rem; }.project-thread-intro p:last-child { max-width: none; }
   .wasm-placeholder { grid-template-columns: 7rem 1fr; gap: 2rem; }.wasm-state { grid-column: 2; }
   .publication-item { grid-template-columns: 3.4rem minmax(0, 1fr); gap: 1rem; }.publication-thumb { width: 3.4rem; aspect-ratio: 1; }.publication-copy { display: contents; }.publication-copy h3 { grid-column: 2; grid-row: 1; }.publication-authors { grid-column: 1 / -1; grid-row: 2; }.publication-summary { grid-column: 1 / -1; grid-row: 3; }.publication-meta { grid-column: 1 / -1; grid-row: 4; text-align: left; }
+  .publication-meta { display: flex; max-width: 100%; align-items: center; overflow-x: auto; text-align: left; white-space: nowrap; scrollbar-width: none; }
+  .publication-meta::-webkit-scrollbar { display: none; }
+  .publication-meta br { display: none; }
+  .publication-meta > span:not(.publication-links)::before, .publication-meta .publication-links::before { margin: 0 0.45rem; color: var(--muted-dark); content: "·"; }
+  .publication-meta .publication-links { display: inline-flex; margin-top: 0; flex-wrap: nowrap; gap: 0.5rem; justify-content: flex-start; }
 }
 
 @media (max-width: 560px) {

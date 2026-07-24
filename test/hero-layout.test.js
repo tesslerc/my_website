@@ -21,6 +21,9 @@ assert.match(css, /\.portrait-card\s*\{[^}]*grid-column:\s*2/, "the portrait sho
 assert.match(css, /\.section-pad\s*\{[^}]*padding: clamp\(4rem, 7vw, 6\.5rem\)/, "section spacing should keep breathing room without excessive margins");
 assert.match(css, /\.project-list\s*\{[^}]*margin-top: clamp\(2rem, 4\.5vw, 4rem\)/, "featured work should arrive closer to its heading");
 assert.match(css, /\.publication-intro\s*\{[^}]*margin-top: clamp\(2rem, 4vw, 3\.5rem\)/, "publication intro spacing should stay compact");
+assert.match(css, /@media \(min-width: 821px\) \{[\s\S]*?\.hero\s*\{[^}]*min-height:\s*auto/, "desktop hero should not reserve empty viewport height below the portrait");
+assert.match(css, /@media \(min-width: 821px\) \{[\s\S]*?\.focus-section\s*\{[^}]*padding-bottom:\s*clamp\(2\.5rem, 4vw, 4rem\)/, "desktop selected work should end with a compact boundary");
+assert.match(css, /@media \(min-width: 821px\) \{[\s\S]*?\.publications-section\s*\{[^}]*padding-top:\s*clamp\(2\.5rem, 4vw, 4rem\)/, "desktop publications should begin with a compact boundary");
 assert.ok(nav.indexOf('href="#top"') < nav.indexOf('href="#focus"') && nav.indexOf('href="#focus"') < nav.indexOf('href="#publications"'), "sidebar navigation should follow the page flow");
 assert.match(nav, /href="#top">About me/, "sidebar should return to the top for About me");
 assert.doesNotMatch(html, /class="hero-thread"/, "the hero should not contain a current-thread block");
