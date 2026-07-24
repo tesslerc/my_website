@@ -31,6 +31,7 @@ assert.doesNotMatch(mobileCss, /scroll-motion/, "the removed scroll-motion style
 
 assert.match(mobileCss, /\.project-content\s*\{[^}]*grid-row:\s*1/, "mobile project explanation should come first");
 assert.match(mobileCss, /\.project-media\s*\{[^}]*grid-row:\s*2/, "mobile project video should follow the explanation");
+assert.match(mobileCss, /\.project-signal, \.project-status\s*\{[^}]*display:\s*none/, "mobile featured cards should omit desktop-only status and signal decoration");
 
 assert.match(mobileCss, /\.publication-item\s*\{[^}]*grid-template-columns:\s*3\.4rem\s+minmax\(0,\s*1fr\)/, "mobile publications should use a compact thumbnail column");
 assert.match(mobileCss, /\.publication-thumb\s*\{[^}]*width:\s*3\.4rem[^}]*aspect-ratio:\s*1/, "mobile publication marks should be small squares");
@@ -38,8 +39,8 @@ assert.match(mobileCss, /\.publication-copy\s*\{[^}]*display:\s*contents/, "publ
 assert.match(mobileCss, /\.publication-copy h3\s*\{[^}]*grid-column:\s*2[^}]*grid-row:\s*1/, "mobile paper title should sit beside its mark");
 assert.match(mobileCss, /\.publication-authors\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/, "mobile authors should span below the title row");
 assert.match(mobileCss, /\.publication-summary\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/, "mobile summary should span below the title row");
-assert.match(mobileCss, /\.publication-meta\s*\{[^}]*display:\s*flex[^}]*white-space:\s*nowrap/, "mobile publication metadata should stay on one compact line");
-assert.match(mobileCss, /\.publication-meta br\s*\{[^}]*display:\s*none/, "mobile publication metadata should remove the desktop line break");
+assert.match(mobileCss, /\.publication-meta\s*\{[^}]*display:\s*grid[^}]*grid-template-columns:\s*auto\s+auto\s+minmax\(0, max-content\)[^}]*white-space:\s*nowrap/, "mobile publication metadata should stay on one compact line");
+assert.match(mobileCss, /\.publication-meta br\s*\{[^}]*display:\s*none\s*!important/, "mobile publication metadata should remove the desktop line break");
 assert.match(mobileCss, /\.publication-meta \.publication-links\s*\{[^}]*margin-top:\s*0[^}]*flex-wrap:\s*nowrap/, "mobile publication links should share the metadata line");
 assert.match(mobileCss, /\.publication-meta \.publication-links::before/, "mobile publication metadata should use an inline separator");
 

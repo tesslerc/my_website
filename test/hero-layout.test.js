@@ -25,6 +25,7 @@ assert.match(css, /\.project-list\s*\{[^}]*margin-top: clamp\(2rem, 4\.5vw, 4rem
 assert.match(css, /\.publication-intro\s*\{[^}]*margin-top: clamp\(2rem, 4vw, 3\.5rem\)/, "publication intro spacing should stay compact");
 assert.match(css, /@media \(min-width: 821px\) \{[\s\S]*?\.hero\s*\{[^}]*min-height:\s*auto/, "desktop hero should not reserve empty viewport height below the portrait");
 assert.match(css, /@media \(min-width: 821px\) \{[\s\S]*?\.hero\s*\{[^}]*padding-bottom:\s*clamp\(1\.25rem, 2\.5vw, 2rem\)/, "desktop hero should use a compact bottom boundary below the portrait");
+assert.match(css, /@media \(min-width: 821px\) \{[\s\S]*?\.profile-links\s*\{[^}]*margin-top:\s*clamp\(0\.75rem, 1\.2vw, 1rem\)/, "desktop About me links should have breathing room below the hero lede");
 assert.match(css, /@media \(min-width: 821px\) \{[\s\S]*?\.focus-section\s*\{[^}]*padding-top:\s*clamp\(1\.75rem, 2\.5vw, 2\.75rem\)/, "desktop selected work should start close to the hero");
 assert.match(css, /@media \(min-width: 821px\) \{[\s\S]*?\.focus-section\s*\{[^}]*padding-bottom:\s*clamp\(2\.5rem, 4vw, 4rem\)/, "desktop selected work should end with a compact boundary");
 assert.match(css, /@media \(min-width: 821px\) \{[\s\S]*?\.publications-section\s*\{[^}]*padding-top:\s*clamp\(2\.5rem, 4vw, 4rem\)/, "desktop publications should begin with a compact boundary");
