@@ -9,8 +9,11 @@ const maskedCard = html.match(/<article class="project-card project-masked[\s\S]
 const kimodoCard = html.match(/<article class="project-card project-kimodo[\s\S]*?<\/article>/)?.[0] || "";
 const gpcCard = html.match(/<article class="project-card project-gpc[\s\S]*?<\/article>/)?.[0] || "";
 
-assert.match(html, /<div class="hero-heading reveal">[\s\S]*<h1 id="hero-title">Learning motion for <em>System 1 control\.<\/em>/, "the thesis should name the reflex-control focus");
-assert.match(html, /<h2 id="focus-title">Three systems,<br \/><em>a common vision\.<\/em><\/h2>/, "selected work should frame the cards around a shared vision");
+assert.match(html, /<div class="hero-heading reveal">[\s\S]*<h1 id="hero-title">Motion priors for <em>System 1 control\.<\/em>/, "the thesis should name motion priors and the reflex-control focus");
+assert.match(html.replace(/\s+/g, " "), /turn motion data into reusable motion priors for robots: a learned System 1 reflex layer for the next few seconds of control\./, "the hero explainer should connect priors to robots and near-term control");
+assert.doesNotMatch(html, /scroll-motion|data-scroll-motion/, "the removed scroll-motion layer should not remain in the markup");
+assert.match(html, /<section class="focus-section section-pad" id="focus"[^>]*aria-label="Selected work"/, "selected work should retain an accessible section label");
+assert.doesNotMatch(html, /Three systems,|a common vision\./, "selected work should not use the marketing-style shared-vision headline");
 assert.match(css, /\.hero-heading\s*\{[^}]*grid-column:\s*1 \/ -1/, "the thesis row should span both hero columns");
 assert.match(css, /\.hero-heading h1\s*\{[^}]*max-width:\s*none/, "the thesis should not be constrained to the lower copy column");
 assert.match(css, /\.hero-copy\s*\{[^}]*grid-column:\s*1/, "the lower copy should stay in the left hero column");
@@ -18,10 +21,13 @@ assert.match(css, /\.portrait-card\s*\{[^}]*grid-column:\s*2/, "the portrait sho
 assert.match(css, /\.section-pad\s*\{[^}]*padding: clamp\(4rem, 7vw, 6\.5rem\)/, "section spacing should keep breathing room without excessive margins");
 assert.match(css, /\.project-list\s*\{[^}]*margin-top: clamp\(2rem, 4\.5vw, 4rem\)/, "featured work should arrive closer to its heading");
 assert.match(css, /\.publication-intro\s*\{[^}]*margin-top: clamp\(2rem, 4vw, 3\.5rem\)/, "publication intro spacing should stay compact");
-assert.ok(nav.indexOf('href="#about"') < nav.indexOf('href="#publications"'), "sidebar navigation should follow the page flow");
+assert.ok(nav.indexOf('href="#top"') < nav.indexOf('href="#focus"') && nav.indexOf('href="#focus"') < nav.indexOf('href="#publications"'), "sidebar navigation should follow the page flow");
+assert.match(nav, /href="#top">About me/, "sidebar should return to the top for About me");
 assert.doesNotMatch(html, /class="hero-thread"/, "the hero should not contain a current-thread block");
-assert.doesNotMatch(html, /I’m interested in the space between a model that can move/, "the About section should keep only the focused research statement");
-assert.match(css, /\.about-copy\s*\{[^}]*grid-column:\s*1 \/ -1/, "the focused About statement should span the full width");
+assert.doesNotMatch(html, /class="about-section"|id="about"|about-title/, "the standalone About section should be removed");
+assert.match(html, /<section class="publications-section section-pad" id="publications" aria-label="Publications">/, "publications should retain an accessible section label");
+assert.match(html, /<section class="publications-section section-pad" id="publications" aria-label="Publications">[\s\S]*<p class="section-index">02 <span>Publications<\/span><\/p>/, "publications should be the second page section");
+assert.doesNotMatch(html, /The full thread|behind the work\./, "publications should not use the removed thread headline");
 assert.match(html, /shared framework for humanoid simulation and control/, "the open-source note should explain ProtoMotions' practical role");
 assert.match(kimodoCard, /Kinematic model \/ synthetic data/, "Kimodo should be framed as a kinematic synthetic-data model");
 assert.match(kimodoCard, /Synthetic data/, "Kimodo should surface its synthetic-data use");
@@ -67,5 +73,7 @@ assert.match(script, /Intl\.NumberFormat/, "the live star count should be format
 assert.match(script, /catch\(\(\) =>/, "the star count should have a graceful API failure path");
 assert.match(script, /const fallback = value\.dataset\.githubStarsFallback \|\| value\.textContent/, "the star count should retain its static fallback");
 assert.match(script, /value\.textContent = fallback/, "API failure should preserve the visible fallback count");
+assert.doesNotMatch(script, /initScrollMotion|data-scroll-motion|requestAnimationFrame/, "the removed scroll-motion behavior should not remain in the script");
+assert.doesNotMatch(css, /scroll-motion/, "the removed scroll-motion styles should not remain in the stylesheet");
 
 console.log("hero layout checks passed");

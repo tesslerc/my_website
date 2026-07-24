@@ -21,6 +21,7 @@ assert.match(mobileCss, /\.open-source-impact\s*\{[^}]*grid-column:\s*1[^}]*grid
 assert.match(mobileCss, /\.open-source-note > a:not\(\.open-source-impact\)\s*\{[^}]*grid-column:\s*2[^}]*grid-row:\s*2[^}]*align-self:\s*center/, "mobile framework link should sit beside the stars");
 assert.match(mobileCss, /\.rail-foot\s*\{[^}]*display:\s*flex[^}]*position:\s*absolute[^}]*top:[^}]*gap:\s*0\.55rem[^}]*align-items:\s*center/, "mobile header should show the cooking animation centered with breathing room");
 assert.match(mobileCss, /\.cooking-indicator\s*\{[^}]*width:\s*0\.62rem[^}]*height:\s*0\.62rem/, "mobile cooking animation should be scaled to the compact header");
+assert.doesNotMatch(mobileCss, /scroll-motion/, "the removed scroll-motion styles should not remain in mobile CSS");
 
 assert.match(mobileCss, /\.project-content\s*\{[^}]*grid-row:\s*1/, "mobile project explanation should come first");
 assert.match(mobileCss, /\.project-media\s*\{[^}]*grid-row:\s*2/, "mobile project video should follow the explanation");

@@ -23,8 +23,8 @@ Then visit <http://localhost:4173>.
   work features, each with a canonical motion video frame.
 - ProtoMotions is called out in the hero as the open-source community-facing
   thread.
-- The hero carries the complete working thesis: reusable motion priors that
-  serve as a learned System 1, a reflex layer for near-short-horizon control.
+- The hero carries the complete working thesis: motion priors for System 1
+  control, with a learned reflex layer for the next few seconds for robots.
 - The bottom archive contains 26 non-patent research outputs with authors,
   venues/types, one-line summaries, compact visual thumbnails, and verified
   Paper / Project / Code links where available. They are grouped into Motion,
@@ -33,7 +33,7 @@ Then visit <http://localhost:4173>.
   keeps the first view focused while showing its concrete extension into
   MaskedManipulator and future directions; GPC and Kimodo stay self-contained.
 - A real WASM demo can be added later without replacing the video-led project
-  stories; the page uses only lightweight reveal motion for now.
+  stories; the page uses lightweight reveal motion.
 - Reduced-motion preferences disable reveal transitions.
 
 ## Before pushing

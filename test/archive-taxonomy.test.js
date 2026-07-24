@@ -11,7 +11,7 @@ const articleOrder = (group) => [...group.matchAll(/<article class="publication-
 
 assert.match(
   html.replace(/\s+/g, " "),
-  /I build models and open systems that turn motion data into reusable motion priors that serve as a learned System 1: a reflex layer for near-short-horizon control\./,
+  /I build models and open systems that turn motion data into reusable motion priors for robots: a learned System 1 reflex layer for the next few seconds of control\./,
   "hero should carry the working thesis"
 );
 assert.doesNotMatch(html, /class="intro-strip/, "working statement strip should be removed");
