@@ -43,6 +43,75 @@
     });
   }
 
+  function initProjectVideos() {
+    const videos = [...document.querySelectorAll(".project-video")];
+    if (!videos.length) return;
+
+    const activeVideos = new Set();
+    const pauseVideo = (video) => {
+      activeVideos.delete(video);
+      video.pause();
+    };
+    const playVideo = (video) => {
+      if (prefersReducedMotion.matches) {
+        video.autoplay = false;
+        pauseVideo(video);
+        return;
+      }
+      if (video.readyState === 0) video.load();
+      activeVideos.add(video);
+      const playRequest = video.play();
+      if (playRequest?.catch) playRequest.catch(() => {});
+    };
+
+    const stopForReducedMotion = () => {
+      videos.forEach((video) => {
+        video.autoplay = false;
+        pauseVideo(video);
+      });
+    };
+
+    if (prefersReducedMotion.matches) {
+      stopForReducedMotion();
+    } else if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            playVideo(entry.target);
+          } else {
+            pauseVideo(entry.target);
+          }
+        });
+      }, { rootMargin: "240px 0px", threshold: 0.01 });
+      videos.forEach((video) => observer.observe(video));
+    } else {
+      videos.forEach(playVideo);
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        videos.forEach((video) => {
+          if (!video.paused) video.dataset.resumeAfterVisibility = "true";
+          video.pause();
+        });
+        return;
+      }
+
+      if (prefersReducedMotion.matches) return;
+      videos.forEach((video) => {
+        if (video.dataset.resumeAfterVisibility !== "true") return;
+        delete video.dataset.resumeAfterVisibility;
+        playVideo(video);
+      });
+    });
+
+    if (typeof prefersReducedMotion.addEventListener === "function") {
+      prefersReducedMotion.addEventListener("change", () => {
+        if (prefersReducedMotion.matches) stopForReducedMotion();
+      });
+    }
+  }
+
   function initOpenSourceImpact() {
     const value = document.querySelector("[data-github-stars]");
     const impact = value?.closest(".open-source-impact");
@@ -74,5 +143,6 @@
   if (year) year.textContent = String(new Date().getFullYear());
   initReveals();
   initProjectThreads();
+  initProjectVideos();
   initOpenSourceImpact();
 })();
