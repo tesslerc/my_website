@@ -264,7 +264,7 @@ input[type="range"] { width: 100%; height: 1rem; accent-color: var(--coral); cur
 
 @media (min-width: 821px) {
   .hero { min-height: auto; padding-bottom: clamp(1.25rem, 2.5vw, 2rem); }
-  .profile-links { margin-top: clamp(0.75rem, 1.2vw, 1rem); }
+  .profile-links { margin-top: 0; padding-top: clamp(0.75rem, 1.2vw, 1rem); }
   .focus-section { padding-top: clamp(1.75rem, 2.5vw, 2.75rem); }
   .focus-section { padding-bottom: clamp(2.5rem, 4vw, 4rem); }
   .publications-section { padding-top: clamp(2.5rem, 4vw, 4rem); }
