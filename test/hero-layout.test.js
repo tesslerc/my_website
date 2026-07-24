@@ -16,6 +16,8 @@ assert.match(html, /<section class="focus-section section-pad" id="focus"[^>]*ar
 assert.doesNotMatch(html, /Three systems,|a common vision\./, "selected work should not use the marketing-style shared-vision headline");
 assert.match(css, /\.hero-heading\s*\{[^}]*grid-column:\s*1 \/ -1/, "the thesis row should span both hero columns");
 assert.match(css, /\.hero-heading h1\s*\{[^}]*max-width:\s*none/, "the thesis should not be constrained to the lower copy column");
+assert.doesNotMatch(css, /h1 em\s*\{[^}]*display:\s*block/, "the thesis should not force a line break before System 1 control");
+assert.match(css, /\.hero-heading h1\s*\{[^}]*text-wrap:\s*balance/, "the thesis should balance naturally across available width");
 assert.match(css, /\.hero-copy\s*\{[^}]*grid-column:\s*1/, "the lower copy should stay in the left hero column");
 assert.match(css, /\.portrait-card\s*\{[^}]*grid-column:\s*2/, "the portrait should stay in the right hero column");
 assert.match(css, /\.section-pad\s*\{[^}]*padding: clamp\(4rem, 7vw, 6\.5rem\)/, "section spacing should keep breathing room without excessive margins");
