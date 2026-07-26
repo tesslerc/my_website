@@ -40,9 +40,11 @@ assert.match(mobileCss, /\.publication-copy\s*\{[^}]*display:\s*contents/, "publ
 assert.match(mobileCss, /\.publication-copy h3\s*\{[^}]*grid-column:\s*2[^}]*grid-row:\s*1/, "mobile paper title should sit beside its mark");
 assert.match(mobileCss, /\.publication-authors\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/, "mobile authors should span below the title row");
 assert.match(mobileCss, /\.publication-summary\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/, "mobile summary should span below the title row");
-assert.match(mobileCss, /\.publication-meta\s*\{[^}]*display:\s*grid[^}]*grid-template-columns:\s*auto\s+auto\s+minmax\(0, max-content\)[^}]*white-space:\s*nowrap/, "mobile publication metadata should stay on one compact line");
+assert.match(mobileCss, /\.publication-meta\s*\{[^}]*display:\s*grid[^}]*width:\s*100%[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+auto\s+minmax\(0,\s*1fr\)[^}]*white-space:\s*nowrap/, "mobile publication metadata should use equal outer tracks around the venue");
+assert.match(mobileCss, /\.publication-meta > span:not\(\.publication-links\)\s*\{[^}]*justify-self:\s*center/, "mobile venue text should sit at the center of the full metadata row");
+assert.match(mobileCss, /\.publication-meta > span:not\(\.publication-links\)::before\s*\{[^}]*display:\s*none/, "the venue separator should not offset the centered venue text");
 assert.match(mobileCss, /\.publication-meta br\s*\{[^}]*display:\s*none\s*!important/, "mobile publication metadata should remove the desktop line break");
-assert.match(mobileCss, /\.publication-meta \.publication-links\s*\{[^}]*margin-top:\s*0[^}]*flex-wrap:\s*nowrap/, "mobile publication links should share the metadata line");
+assert.match(mobileCss, /\.publication-meta \.publication-links\s*\{[^}]*margin-top:\s*0[^}]*flex-wrap:\s*nowrap[^}]*justify-self:\s*end/, "mobile publication links should share the metadata line and anchor to the right");
 assert.match(mobileCss, /\.publication-meta \.publication-links::before/, "mobile publication metadata should use an inline separator");
 
 console.log("mobile structure checks passed");
