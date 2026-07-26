@@ -13,8 +13,9 @@ assert.match(mobileCss, /\.hero\s*\{[^}]*padding-top:\s*clamp\(1\.5rem, 5vw, 3re
 assert.match(mobileCss, /\.hero\s*\{[^}]*padding-bottom:\s*clamp\(1\.25rem, 4vw, 2rem\)/, "mobile hero should end close to the ProtoMotions block");
 assert.match(mobileCss, /\.hero-heading h1\s*\{[^}]*font-size:\s*clamp\(2\.35rem, 10\.2vw, 4\.8rem\)/, "mobile thesis should stay prominent without becoming four lines");
 assert.match(mobileCss, /\.profile-links\s*\{[^}]*grid-column:\s*1[^}]*grid-row:\s*4/, "mobile profile links should follow the family portrait");
-assert.match(mobileCss, /\.profile-links\s*\{[^}]*width:\s*100%[^}]*max-width:\s*none[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(2rem,\s*0\.55fr\)\s+minmax\(0,\s*1\.45fr\)/, "mobile profile links should use the full width with room for LinkedIn / CV");
-assert.match(mobileCss, /\.profile-links-label\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/, "mobile About me label should occupy its own row");
+assert.match(mobileCss, /\.profile-links\s*\{[^}]*width:\s*100%[^}]*max-width:\s*none[^}]*grid-template-columns:\s*1fr/, "mobile profile identity should use the full width in one content column");
+assert.match(mobileCss, /\.profile-links-label\s*\{[^}]*grid-column:\s*1[^}]*border-right:\s*0/, "mobile About me label should return to the normal content column");
+assert.match(mobileCss, /\.profile-link-row\s*\{[^}]*display:\s*grid[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(2rem,\s*0\.55fr\)\s+minmax\(0,\s*1\.45fr\)/, "mobile professional links should retain the compact three-column row");
 assert.match(mobileCss, /\.profile-link\s*\{[^}]*display:\s*inline-flex[^}]*white-space:\s*nowrap/, "mobile profile links should keep each label on one line");
 assert.match(mobileCss, /\.portrait-card\s*\{[^}]*grid-row:\s*3/, "mobile portrait should appear before the About me links");
 assert.match(mobileCss, /\.open-source-note\s*\{[^}]*grid-row:\s*5/, "mobile ProtoMotions note should follow the portrait and profile links");
