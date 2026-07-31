@@ -42,4 +42,4 @@ Then visit <http://localhost:4173>.
   before each website push. It is the offline/mobile-safe value shown until the live
   GitHub request completes. Update the matching expectation in
   `test/hero-layout.test.js` at the same time. The current snapshot was checked on
-  2026-07-23 and is `2.1k` stars.
+  2026-07-31 and is `2.2k` stars.
