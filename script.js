@@ -112,6 +112,32 @@
     }
   }
 
+  function initProjectVideoLabels() {
+    document.querySelectorAll("[data-video-segments]").forEach((frame) => {
+      const video = frame.querySelector("video");
+      const labels = [...frame.querySelectorAll("[data-start]")];
+      const sync = (time = video.currentTime) => {
+        let active = 0;
+        labels.forEach((label, index) => {
+          if (time >= Number(label.dataset.start)) active = index;
+        });
+        labels.forEach((label, index) => { label.hidden = index !== active; });
+      };
+      // Follow media time, including seeks and loop resets, not a wall-clock timer.
+      ["timeupdate", "seeking", "loadedmetadata", "emptied"].forEach((event) => {
+        video.addEventListener(event, () => sync());
+      });
+      if (typeof video.requestVideoFrameCallback === "function") {
+        const onFrame = (_now, metadata) => {
+          sync(metadata.mediaTime);
+          video.requestVideoFrameCallback(onFrame);
+        };
+        video.requestVideoFrameCallback(onFrame);
+      }
+      sync();
+    });
+  }
+
   function initOpenSourceImpact() {
     const value = document.querySelector("[data-github-stars]");
     const impact = value?.closest(".open-source-impact");
@@ -143,6 +169,7 @@
   if (year) year.textContent = String(new Date().getFullYear());
   initReveals();
   initProjectThreads();
+  initProjectVideoLabels();
   initProjectVideos();
   initOpenSourceImpact();
 })();

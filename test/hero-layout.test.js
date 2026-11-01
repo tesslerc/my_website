@@ -46,13 +46,15 @@ assert.doesNotMatch(kimodoCard, /Near-short horizon|real-time decisions|Short-ho
 assert.match(maskedCard, /Physics-based robotics \/ zero-shot guidance/, "MaskedMimic should foreground physics-based robotics and zero-shot guidance");
 assert.match(maskedCard, /Motion inpainting/, "MaskedMimic should surface its motion-inpainting method");
 assert.match(maskedCard, /physics-based controller/, "MaskedMimic should be distinguished from kinematic animation");
-assert.match(maskedCard, /autoplay muted loop playsinline[^>]*poster="assets\/maskedmimic-poster\.jpg"/, "MaskedMimic should autoplay its local video without controls");
-assert.match(maskedCard, /assets\/maskedmimic\.mp4/, "MaskedMimic should use the downloaded local video");
+assert.match(maskedCard, /autoplay muted loop playsinline[^>]*poster="assets\/metatron-hardware-poster\.jpg"/, "MaskedMimic's research thread should autoplay the local hardware reel without controls");
+assert.match(maskedCard, /assets\/metatron-hardware\.mp4/, "MaskedMimic's research thread should feature the local Metatron hardware reel");
+assert.match(maskedCard, /Real robot \/ 01<\/span><span>Metatron/, "the hardware footage should be attributed to Metatron");
 assert.match(gpcCard, /Physics-based robotics \/ reusable motion prior/, "GPC should foreground physics-based robotics and reusable motion priors");
 assert.doesNotMatch(gpcCard, /Pretraining \/ control as a prior/, "GPC should not be framed as a generic pretraining/control card");
 assert.match(gpcCard, /physics simulation and robotics/, "GPC should be distinguished from kinematic animation");
-assert.match(gpcCard, /autoplay muted loop playsinline[^>]*poster="assets\/gpc-poster\.jpg"/, "GPC should autoplay its local video without controls");
-assert.match(gpcCard, /assets\/gpc\.mp4/, "GPC should use the downloaded local video");
+assert.match(gpcCard, /autoplay muted loop playsinline[^>]*poster="assets\/robogpc-hardware-poster\.jpg"/, "GPC's research thread should autoplay the local hardware reel without controls");
+assert.match(gpcCard, /assets\/robogpc-hardware\.mp4/, "GPC's research thread should feature the local Robo-GPC hardware reel");
+assert.match(gpcCard, /Real robot \/ 02<\/span><span>Robo-GPC/, "the hardware footage should be attributed to Robo-GPC");
 assert.doesNotMatch(html, /youtube-nocookie\.com|platform\.twitter\.com\/widgets\.js/, "the cards should not depend on external video embeds");
 assert.doesNotMatch(html, /Video source/, "the cards should keep only useful project-page links");
 
@@ -66,7 +68,7 @@ assert.match(html, /href="https:\/\/x\.com\/ChenTessler"[^>]*>X/, "X link should
 assert.match(html, /href="https:\/\/www\.linkedin\.com\/in\/chentessler\/"[^>]*>LinkedIn \/ CV/, "LinkedIn and CV link should be present");
 assert.equal((html.match(/class="profile-link"/g) || []).length, 3, "the about rail should contain exactly three links");
 assert.match(html, /class="open-source-impact"[^>]*aria-label="ProtoMotions community stars"/, "ProtoMotions should expose a community impact link");
-assert.match(html, /data-github-stars[^>]*data-github-stars-fallback="2\.2k">2\.2k/, "the star count should have a visible fallback before the API responds");
+assert.match(html, /data-github-stars[^>]*data-github-stars-fallback="2\.5k">2\.5k/, "the star count should have a visible fallback before the API responds");
 assert.match(html, /class="open-source-impact-label">community stars/, "the impact readout should name what it measures");
 assert.match(css, /\.profile-links\s*\{/, "about links should have a dedicated layout rule");
 assert.match(css, /\.profile-link\s*\{/, "about links should have a dedicated link rule");

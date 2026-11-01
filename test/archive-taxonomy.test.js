@@ -17,29 +17,41 @@ assert.match(
 assert.doesNotMatch(html, /class="intro-strip/, "working statement strip should be removed");
 assert.doesNotMatch(css, /\.intro-strip/, "working statement styles should be removed");
 assert.deepEqual(groups, ["motion", "learning", "applied"], "archive groups should have a stable semantic order");
-assert.equal((html.match(/class="publication-item reveal"/g) || []).length, 26, "archive should contain the selected 26 publications");
+assert.equal((html.match(/class="publication-item reveal"/g) || []).length, 28, "archive should contain the selected 28 publications");
 assert.doesNotMatch(html, /Deep Reinforcement Learning Works—Now What\?/, "the essay should be removed from the archive");
 assert.doesNotMatch(html, /<h3>ProtoMotions: An Open-Source Framework for Humanoid Simulation and Control<\/h3>/, "ProtoMotions should stay in the hero rather than the archive");
 assert.doesNotMatch(html, /thumb-open-source/, "the archive should not contain a ProtoMotions thumbnail");
 const publicationArticles = html.match(/<article class="publication-item reveal"[^>]*>[\s\S]*?<\/article>/g) || [];
-assert.equal(publicationArticles.length, 26, "link coverage should inspect all selected papers");
+assert.equal(publicationArticles.length, 28, "link coverage should inspect all selected papers");
 const plamoArticle = publicationArticles.find((article) => article.includes("PlaMo: Plan and Move in Rich 3D Physical Environments")) || "";
+const metatronArticle = publicationArticles.find((article) => article.includes('id="publication-metatron"')) || "";
+const robogpcArticle = publicationArticles.find((article) => article.includes('id="publication-robogpc"')) || "";
+const linkFreePreprints = [robogpcArticle];
 assert.equal(
-  publicationArticles.filter((article) => !article.includes('class="publication-links"')).length,
+  publicationArticles.filter((article) => !linkFreePreprints.includes(article) && !article.includes('class="publication-links"')).length,
   0,
-  "every paper should expose a link row"
+  "papers with available links should expose a link row"
 );
-assert.equal((html.match(/class="publication-links"/g) || []).length, 26, "every paper should have exactly one link row");
+assert.equal((html.match(/class="publication-links"/g) || []).length, 27, "only papers with available links should have a link row");
 assert.equal(
-  publicationArticles.filter((article) => !article.includes('>Paper</a>')).length,
+  publicationArticles.filter((article) => !linkFreePreprints.includes(article) && !article.includes('>Paper</a>')).length,
   0,
-  "every paper should expose a paper link"
+  "every published paper should expose a paper link"
 );
+assert.match(metatronArticle, /2026<br \/><span>ARXIV PREPRINT<\/span>/, "Metatron should be labeled as a 2026 arXiv preprint");
+assert.match(metatronArticle, /href="https:\/\/arxiv\.org\/abs\/2610\.38027"[^>]*>Paper<\/a>/, "Metatron should link to its paper");
+assert.match(metatronArticle, /href="https:\/\/research\.nvidia\.com\/labs\/par\/projects\/metatron\/"[^>]*>Project<\/a>/, "Metatron should link to its public project page");
+assert.match(metatronArticle, /href="https:\/\/github\.com\/NVlabs\/ProtoMotions"[^>]*>Code<\/a>/, "Metatron should link to ProtoMotions for code");
+assert.match(robogpcArticle, /2026<br \/><span>PREPRINT<\/span>/, "Robo-GPC should be labeled as a 2026 preprint");
+assert.doesNotMatch(robogpcArticle, /<a\b|class="publication-links"/, "Robo-GPC should have no external links until requested");
+assert.match(robogpcArticle, /Liang Pan, Yi Shi, Qingrui Zhao, Qingcheng ZENG, Yuxuan Mu, Ziyu Zhang, Yan Wu, Dun Yang, Hongming Chen, Hongxi Wang, Jiangpeng Hu, Wenjia Wang, Jingbo Wang, Yuntao Ma, Tingxiang Fan, Yifeng Jiang, <strong>Chen Tessler<\/strong>, Xue Bin Peng, Taku Komura/, "Robo-GPC should preserve the supplied author list and highlight Chen");
 assert.doesNotMatch(plamoArticle, />Project<\/a>/, "PlaMo should keep only its paper link");
 assert.match(motionGroup, /Action Robust Reinforcement Learning and Applications in Continuous Control/, "Action Robust RL should sit with Motion work");
 assert.match(motionGroup, /<h3>Kimodo: Scaling Controllable Human Motion Generation<\/h3>[\s\S]*?A scalable kinematic motion model/, "Kimodo's publication entry should identify its kinematic model");
 assert.match(motionGroup, /<h3>MaskedManipulator: Versatile Whole-Body Manipulation<\/h3>[\s\S]*?extending spatio-temporal goals into whole-body manipulation/, "MaskedManipulator's publication entry should identify its spatio-temporal manipulation extension");
 assert.deepEqual(articleOrder(motionGroup), [
+  "2026:Robo-GPC: Compliant Robotic Control with Generative Pretrained Controllers",
+  "2026:Metatron: A Promptable Whole-Body Execution Layer for Humanoids",
   "2026:GPC: Large-Scale Generative Pretraining for Transferable Motor Control",
   "2026:Kimodo: Scaling Controllable Human Motion Generation",
   "2026:HIL: Hybrid Imitation Learning for Dynamic Athletic Control",
@@ -72,7 +84,7 @@ assert.match(motionGroup, /Task Tokens: A Flexible Approach to Adapting Behavior
 assert.doesNotMatch(learningGroup, /Task Tokens: A Flexible Approach to Adapting Behavior Foundation Models/, "Task Tokens should leave the broad learning group");
 assert.doesNotMatch(motionGroup, /Learning to Move Like Professional Counter-Strike Players/, "Counter-Strike should leave the Motion group");
 assert.match(learningGroup, /Learning to Move Like Professional Counter-Strike Players/, "Counter-Strike should sit with learning work");
-assert.match(html, /<span class="publication-group-count">11 papers<\/span>/, "Motion group count should reflect the reclassified papers");
+assert.match(html, /<span class="publication-group-count">13 papers<\/span>/, "Motion group count should include Metatron and Robo-GPC");
 assert.equal((learningGroup.match(/class="publication-item reveal"/g) || []).length, 11, "learning group count should include the merged learning and transfer work");
 assert.match(html, /<section class="publication-group" data-group="applied"[\s\S]*?<span class="publication-group-count">4 papers<\/span>/, "applied group count should remain stable");
 assert.match(

@@ -79,7 +79,7 @@
             </nav>
             <div class="open-source-note">
               <div class="open-source-copy"><span class="open-source-kicker">Open source research / ProtoMotions</span><p>ProtoMotions is a shared framework for humanoid simulation and control, giving the community a practical starting point to experiment, build, and move faster.</p></div>
-              <a class="open-source-impact" href="https://github.com/NVlabs/ProtoMotions" target="_blank" rel="noreferrer" aria-label="ProtoMotions community stars"><span class="open-source-impact-value" data-github-stars data-github-stars-fallback="2.2k">2.2k</span><span class="open-source-impact-label">community stars</span></a>
+              <a class="open-source-impact" href="https://github.com/NVlabs/ProtoMotions" target="_blank" rel="noreferrer" aria-label="ProtoMotions community stars"><span class="open-source-impact-value" data-github-stars data-github-stars-fallback="2.5k">2.5k</span><span class="open-source-impact-label">community stars</span></a>
               <a href="https://github.com/NVlabs/ProtoMotions" target="_blank" rel="noreferrer">Visit the framework <span>↗</span></a>
             </div>
           </div>
@@ -102,11 +102,14 @@
           <div class="project-list">
             <article class="project-card project-masked reveal" id="work-maskedmimic">
               <div class="project-media">
-                <div class="media-kicker"><span>Motion render / 01</span><span>MaskedMimic</span></div>
-                <video class="project-video" autoplay muted loop playsinline preload="none" poster="assets/maskedmimic-poster.jpg" aria-label="MaskedMimic motion render">
-                  <source src="assets/maskedmimic.mp4" type="video/mp4" />
-                </video>
-                <a class="media-link" href="https://research.nvidia.com/labs/par/maskedmimic/" target="_blank" rel="noreferrer">Project page <span>↗</span></a>
+                <div class="media-kicker"><span>Real robot / 01</span><span>Metatron</span></div>
+                <div class="project-video-frame">
+                  <video class="project-video" autoplay muted loop playsinline preload="none" poster="assets/metatron-hardware-poster.jpg" aria-label="Metatron on a real G1 humanoid: recovery, scene interaction through sitting, and teleoperated object pickup, shown side by side">
+                    <source src="assets/metatron-hardware.mp4" type="video/mp4" />
+                  </video>
+                  <div class="video-panel-labels" aria-hidden="true"><span>Recovery</span><span>Scene interaction</span><span>Teleoperation</span></div>
+                </div>
+                <a class="media-link" href="https://research.nvidia.com/labs/par/projects/metatron/" target="_blank" rel="noreferrer">Metatron project <span>↗</span></a>
               </div>
               <div class="project-signal" aria-hidden="true"><span>01</span><i></i><i></i><i></i></div>
               <div class="project-content"><p class="eyebrow">Physics-based robotics / zero-shot guidance</p><h3>MaskedMimic</h3><p>A zero-shot, guidable physics-based controller that turns partial intent into whole-body behavior across terrains, tasks, and environments.</p><div class="project-tags"><span>Zero-shot guidance</span><span>Motion inpainting</span></div></div>
@@ -118,7 +121,7 @@
                   <ol class="project-thread-path">
                     <li class="project-thread-node"><span class="project-thread-stage">Anchor</span><a href="#publication-maskedmimic">MaskedMimic <span aria-hidden="true">↘</span></a><p>Partial evidence becomes a reusable physics-based motion prior.</p></li>
                     <li class="project-thread-node project-thread-current"><span class="project-thread-stage">Extension</span><a href="#publication-maskedmanipulator">MaskedManipulator <span aria-hidden="true">↘</span></a><p>The same idea reaches into expressive whole-body manipulation.</p></li>
-                    <li class="project-thread-node project-thread-next"><span class="project-thread-stage">Next direction</span><strong>New control modes, robots, scene awareness</strong><p>The same motion prior can extend to new forms of control and interaction.</p></li>
+                    <li class="project-thread-node"><span class="project-thread-stage">2026 / Extension</span><a href="#publication-metatron">Metatron <span aria-hidden="true">↘</span></a><p>Promptable whole-body control on real humanoids, with new skills written in code around a frozen motion prior.</p></li>
                   </ol>
                 </div>
               </details>
@@ -126,15 +129,32 @@
 
             <article class="project-card project-gpc reveal" id="work-gpc">
               <div class="project-media">
-                <div class="media-kicker"><span>Motion render / 02</span><span>GPC</span></div>
-                <video class="project-video" autoplay muted loop playsinline preload="none" poster="assets/gpc-poster.jpg" aria-label="Generative Pretrained Controllers motion render">
-                  <source src="assets/gpc.mp4" type="video/mp4" />
-                </video>
-                <a class="media-link" href="https://yi-shi94.github.io/gpc-page/" target="_blank" rel="noreferrer">Project page <span>↗</span></a>
+                <div class="media-kicker"><span>Real robot / 02</span><span>Robo-GPC</span></div>
+                <div class="project-video-frame" data-video-segments>
+                  <video class="project-video" autoplay muted loop playsinline preload="none" poster="assets/robogpc-hardware-poster.jpg" aria-label="Robo-GPC on a real G1 humanoid: robust tracking with fall recovery, joystick steering, and stylized steering">
+                    <source src="assets/robogpc-hardware.mp4" type="video/mp4" />
+                  </video>
+                  <div class="video-segment-labels" aria-hidden="true">
+                    <span data-start="0">Robust tracking</span>
+                    <span data-start="9.033333" hidden>Steering</span>
+                    <span data-start="16.033333" hidden>Stylized steering</span>
+                  </div>
+                </div>
+                <a class="media-link" href="https://yi-shi94.github.io/gpc-page/" target="_blank" rel="noreferrer">GPC project <span>↗</span></a>
               </div>
               <div class="project-signal" aria-hidden="true"><span>02</span><i></i><i></i><i></i></div>
               <div class="project-content"><p class="eyebrow">Physics-based robotics / reusable motion prior</p><h3>Generative Pretrained Controllers</h3><p>A generative controller trained on large-scale motion data, then adapted to downstream tasks in physics simulation and robotics without rebuilding its movement vocabulary from scratch.</p><div class="project-tags"><span>Reusable priors</span><span>Transferable skills</span></div></div>
               <span class="project-status">Featured work</span>
+              <details class="project-thread">
+                <summary><span>Research path</span><span class="project-thread-chevron" aria-hidden="true">⌄</span></summary>
+                <div class="project-thread-body">
+                  <div class="project-thread-intro"><p class="eyebrow">Research thread / transferable skills</p><p>From a reusable motor prior to compliant control on real robots.</p></div>
+                  <ol class="project-thread-path project-thread-path-pair">
+                    <li class="project-thread-node"><span class="project-thread-stage">Anchor</span><a href="#publication-gpc">GPC <span aria-hidden="true">↘</span></a><p>A generative motor prior learns a vocabulary of skills that can be adapted to new tasks.</p></li>
+                    <li class="project-thread-node"><span class="project-thread-stage">2026 / Extension</span><a href="#publication-robogpc">Robo-GPC <span aria-hidden="true">↘</span></a><p>Lightweight task adaptation brings the prior to real humanoids, retaining natural responses to pushes, pulls, and falls.</p></li>
+                  </ol>
+                </div>
+              </details>
             </article>
 
             <article class="project-card project-kimodo reveal" id="work-kimodo">
@@ -158,7 +178,7 @@
           </div>
           <div class="publication-intro reveal">
             <p>Motion generation, control, learning, and the systems around them.</p>
-            <span>26 research outputs / 2017-2026 <small class="publication-equal-legend" title="Asterisks indicate equal contribution">* equal contribution</small></span>
+            <span>28 research outputs / 2017-2026 <small class="publication-equal-legend" title="Asterisks indicate equal contribution">* equal contribution</small></span>
           </div>
           <div class="publication-list">
             <section class="publication-group" data-group="motion" aria-labelledby="publication-group-motion">
@@ -168,8 +188,20 @@
                   <h3 id="publication-group-motion">Motion</h3>
                   <p>Reusable priors, whole-body behavior, and the motion they generate.</p>
                 </div>
-                <span class="publication-group-count">11 papers</span>
+                <span class="publication-group-count">13 papers</span>
               </div>
+
+              <article class="publication-item reveal" id="publication-robogpc">
+                <div class="publication-thumb thumb-gpc" role="img" aria-label="Abstract motor-prior visualization for Robo-GPC"><span>RGPC</span><i></i><i></i></div>
+                <div class="publication-copy"><h3>Robo-GPC: Compliant Robotic Control with Generative Pretrained Controllers</h3><p class="publication-authors">Liang Pan, Yi Shi, Qingrui Zhao, Qingcheng ZENG, Yuxuan Mu, Ziyu Zhang, Yan Wu, Dun Yang, Hongming Chen, Hongxi Wang, Jiangpeng Hu, Wenjia Wang, Jingbo Wang, Yuntao Ma, Tingxiang Fan, Yifeng Jiang, <strong>Chen Tessler</strong>, Xue Bin Peng, Taku Komura</p><p class="publication-summary">Adapting a generative motor prior to real humanoid tasks with lightweight fine-tuning, while preserving compliant responses to contact and natural fall recovery.</p></div>
+                <p class="publication-meta">2026<br /><span>PREPRINT</span></p>
+              </article>
+
+              <article class="publication-item reveal" id="publication-metatron">
+                <div class="publication-thumb thumb-metatron" role="img" aria-label="Abstract motion-prior visualization for Metatron"><span>MET</span><i></i><i></i></div>
+                <div class="publication-copy"><h3>Metatron: A Promptable Whole-Body Execution Layer for Humanoids</h3><p class="publication-authors"><strong>Chen Tessler</strong><sup>*</sup>, Yifeng Jiang<sup>*</sup>, Alec Otto, Yi Shi, Umar Iqbal, Gal Chechi, Xue Bin Peng</p><p class="publication-summary">One frozen policy turns partial goals into coordinated movement on a real humanoid, while skills written in code and refined by coding agents enable new tasks without policy retraining.</p></div>
+                <p class="publication-meta">2026<br /><span>ARXIV PREPRINT</span><span class="publication-links"><a href="https://arxiv.org/abs/2610.38027" target="_blank" rel="noreferrer">Paper</a><a href="https://research.nvidia.com/labs/par/projects/metatron/" target="_blank" rel="noreferrer">Project</a><a href="https://github.com/NVlabs/ProtoMotions" target="_blank" rel="noreferrer">Code</a></span></p>
+              </article>
 
               <article class="publication-item reveal" id="publication-gpc">
                 <div class="publication-thumb thumb-gpc" role="img" aria-label="Abstract controller visualization for Generative Pretrained Controllers"><span>GPC</span><i></i><i></i></div>
