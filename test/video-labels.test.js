@@ -4,7 +4,7 @@ const vm = require("node:vm");
 
 const html = fs.readFileSync("index.html", "utf8");
 const script = fs.readFileSync("script.js", "utf8");
-assert.match(html, /video-panel-labels[^>]*><span>Recovery<\/span><span>Scene interaction<\/span><span>Teleoperation<\/span>/);
+assert.match(html, /video-panel-labels[^>]*><span>Steering<\/span><span>Scene interaction<\/span><span>Teleoperation<\/span>/);
 const cues = [...html.matchAll(/<span data-start="([^"]+)"[^>]*>([^<]+)<\/span>/g)];
 assert.deepEqual(cues.map((cue) => cue[2]), ["Robust tracking", "Steering", "Stylized steering"]);
 

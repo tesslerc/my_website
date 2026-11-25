@@ -43,23 +43,25 @@ Then visit <http://localhost:4173>.
 ## Metatron featured video
 
 `assets/metatron-hardware.mp4` combines three real G1 demonstrations side by
-side in a single 960×540 (16:9) video: recovery, sitting, and teleoperated object
-pickup. The card labels the footage as Metatron, and its project link points to
+side in a single 960×540 (16:9) video: joystick steering, sitting, and kitchen
+teleoperation. The steering and teleoperation clips use the updated (Nov 2026)
+policy. The card labels the footage as Metatron, and its project link points to
 the public Metatron website at https://research.nvidia.com/labs/par/projects/metatron/.
 
 Source clips from the Metatron site deployment:
 
-- `hero-v3-recovery.mp4`: crop `448:756:64:100`.
+- `hero-nov26-steering.mp4`: full 12-second clip, crop `360:608:0:16`.
 - `hero-v4-sitting.mp4`: crop `512:864:0:20`.
-- `hero-v2-teleoperation.mp4`: crop `400:675:70:160`.
+- `hero-nov26-back-kitchen-v2.mp4`: seconds 8–20, crop `360:608:0:16`. Keeps
+  the walk to the counter, the turn, and the reach for the cup.
 
-Each crop is scaled to 320×540, then horizontally stacked. The shorter clips
-repeat at their existing edited playback pace until the pickup clip finishes
-(about 8.4 seconds). This is a demonstration montage, not a timing comparison.
+Each crop is scaled to 320×540, then horizontally stacked. The montage runs
+12 seconds at source playback speed; the 5.5-second sitting clip repeats to
+fill it. This is a demonstration montage, not a timing comparison.
 Encoding is H.264, yuv420p, CRF 23, fast-start, without audio. The poster is taken
 at 2 seconds. Existing viewport playback and reduced-motion handling apply.
 The previous MaskedMimic assets are retained for easy restoration.
-HTML overlays label each panel: Recovery, Scene interaction, and Teleoperation.
+HTML overlays label each panel: Steering, Scene interaction, and Teleoperation.
 
 ## Robo-GPC featured video
 
